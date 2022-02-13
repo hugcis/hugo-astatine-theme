@@ -1,0 +1,14 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Astatine Theme</title>
+    <link>https://example.org/</link>
+    <description>Recent content on Astatine Theme</description>
+    
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
