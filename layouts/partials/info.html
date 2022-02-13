@@ -6,8 +6,8 @@
             <source srcset="{{ .name }}"{{ if .type }} type="{{ .type }}"{{ end }}>
             {{ end }}
             {{ end }}
-            <source srcset="{{ relref . .Site.Params.imgname.Name }}"{{ if .Site.Params.imgname.Type }} type="{{ .Site.Params.Imgname.Type }}"{{ end }}>
-            <img class="main-image u-photo" itemprop="contentUrl" alt="Main picture" src="{{ relref . .Site.Params.imgname.Name }}">
+            <source srcset="{{ .Site.Params.imgname.Name }}"{{ if .Site.Params.imgname.Type }} type="{{ .Site.Params.Imgname.Type }}"{{ end }}>
+            <img class="main-image u-photo" itemprop="contentUrl" alt="Main picture" src="{{ .Site.Params.imgname.Name }}">
         </picture>
     </div>
     <div class="contact-info">

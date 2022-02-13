@@ -1,5 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1">
+<base href="{{ .Site.BaseURL }}">
 {{- if eq .RelPermalink "/" -}}
 <title>{{ .Site.Title }}</title>
 <meta property="og:title" content="{{ .Site.Title }}">
@@ -16,7 +17,7 @@
 <meta property="og:type" content="website">
 {{ end }}
 {{ if .Params.Imgname }}
-<meta property="og:image" content="{{ ref . .Params.Imgname.Name }}">
+<meta property="og:image" content="{{ .Params.Imgname.Name }}">
 {{ else if .Params.Caption }}
 <meta property="og:image" content="{{ .Params.Caption.Name }}">
 {{ else }}

@@ -12,7 +12,7 @@
     {{ range .Params.Publications }}
     <div class="pub-wrapper" id="{{anchorize .title}}" itemscope itemtype="http://schema.org/ScholarlyArticle">
         <div class="pub-image" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
-            <img alt="{{ .title }} paper illustration" itemprop="url" src="{{ relref . .image }}" style="width: 100%;"/>
+            <img alt="{{ .title }} paper illustration" itemprop="url" src="{{ .image }}" style="width: 100%;"/>
         </div>
         <div class="publication">
             <b><span itemprop="author">{{- .me -}}</span></b>,
