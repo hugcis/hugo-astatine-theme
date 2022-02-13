@@ -40,14 +40,10 @@ jobs:
           target_branch: publish
           github_token: ${{ github.token }}
           
-      - name: Change directory
-        run: cd exampleSite
-      
       - name: Build
-        run: hugo --minify
-
-      - name: Run a multi-line script
         run: |
+          cd exampleSite
+          hugo --minify
           cd ../
           rm -rf docs/
           cp -r exampleSite/public docs  
