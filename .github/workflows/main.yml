@@ -49,5 +49,9 @@ jobs:
           cd ../
           rm -rf docs/
           cp -r exampleSite/public docs
-          git add docs/*
-          git commit -m "Update example site"
+
+      - name: Publish
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update example site
+          file_pattern: docs/*
