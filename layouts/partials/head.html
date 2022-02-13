@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 {{ end }}
 {{ if .Params.Imgname }}
-<meta property="og:image" content="{{ .Params.Imgname.Name }}">
+<meta property="og:image" content="{{ ref . .Params.Imgname.Name }}">
 {{ else if .Params.Caption }}
 <meta property="og:image" content="{{ .Params.Caption.Name }}">
 {{ else }}
