@@ -43,6 +43,8 @@ jobs:
       - name: Build
         run: |
           cd exampleSite
+          mkdir themes
+          git clone https://github.com/hugcis/hugo-astatine-theme themes/hugo-astatine-theme
           hugo --minify
           cd ../
           rm -rf docs/
