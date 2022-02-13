@@ -48,4 +48,6 @@ jobs:
           hugo --minify
           cd ../
           rm -rf docs/
-          cp -r exampleSite/public docs  
+          cp -r exampleSite/public docs
+          git add docs/*
+          git commit -m "Update example site"
