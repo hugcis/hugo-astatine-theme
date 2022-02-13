@@ -1,6 +1,6 @@
 ---
 imgname: 
-  name: "/img/main.jpeg"
+  name: "img/main.jpg"
   alt: "Picture of me"
   type: image/jpeg
   
@@ -27,7 +27,7 @@ publications:
     title: "Measurement of the First Ionization Potential of Astatine by Laser Ionization Spectroscopy"
     date: 2013
     journal: Nature Communications
-    image: /img/paper_illustration.png
+    image: img/paper_illustration.png
     citation: "@article{article,
 author = {Rothe, Sebastian and Andreyev, A and Antalic, Stanislav and Borschevsky, Anastasia and Capponi, Luigi and Cocolios, Thomas and De Witte, Hilde and Eliav, Ephraim and Fedorov, D.V. and Fedosseev, Valentin and Fink, D and Fritzsche, s and Ghys, Lars and Huyse, M and Imai, Nobuaki and Kaldor, U and Kudryavtsev, Yu and Koester, Ulli and Lane, J and Wendt, Klaus},
 year = {2013},

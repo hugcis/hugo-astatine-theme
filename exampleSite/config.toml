@@ -41,7 +41,7 @@ pygmentsStyle = "native"
     description = "The homepage of Astatine"
     authorName = "Jack Harkness"
     [params.imgname]
-        name = "/img/main.jpg"
+        name = "img/main.jpg"
         alt = "Profile picture"
 
     [params.logo]
