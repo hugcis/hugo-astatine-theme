@@ -48,7 +48,8 @@
         <div>
             <a id="#close-modal-{{ .title | urlize}}" title="Close" class="modal-close">✕</a>
             <h3>Cite <i>{{ .title }}</i></h3>
-            <pre><code>{{ .citation }}</code></pre>
+            <button class="modal-copy-citation" id="#copy-{{ substr (sha256 .citation) 0 8 }}">Copy to clipboard</button>
+            <pre><code id="{{ substr (sha256 .citation) 0 8 }}">{{ .citation }}</code></pre>
         </div>
     </div>
     {{end}}

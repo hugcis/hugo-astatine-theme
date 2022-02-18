@@ -13,11 +13,32 @@
  var list = document.getElementsByClassName("open-modal");
  for (let item of list) {
      var id = item.attributes["data-target"].textContent;
-		 var modWin = document.getElementById(id);
+	 var modWin = document.getElementById(id);
      var closeButton = document.getElementById(id.replace("open", "close"));
 
-	   item.addEventListener('click', toggleModal(modWin));
+	 item.addEventListener('click', toggleModal(modWin));
      closeButton.addEventListener('click', toggleModal(modWin));
      modWin.addEventListener('click', toggleModal(modWin));
+ }
+ var clipboardCopyButtons = document.getElementsByClassName("modal-copy-citation");
+ for (let button of clipboardCopyButtons) {
+     let citation_id = button.id.replace("#copy-", "");
+     let citation_text = document.getElementById(citation_id);
+     button.addEventListener('click', function (clicked) {
+        return function () {
+            if (!clicked) {
+                var last = this.innerHTML;
+                navigator.clipboard
+                         .writeText(citation_text.innerHTML)
+                         .then(() => {this.innerHTML = "Copied!"},
+                               () => {this.innerHTML = "Error copying!";});
+                clicked = true;
+                setTimeout(function () {
+                    this.innerHTML = last;
+                    clicked = false;
+                }.bind(this), 1000);
+            }
+        };
+     }(false), this);
  }
 </script>
