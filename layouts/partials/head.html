@@ -1,6 +1,5 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1">
-<base href="{{ .Site.BaseURL }}">
 {{- if eq .RelPermalink "/" -}}
 <title>{{ .Site.Title }}</title>
 <meta property="og:title" content="{{ .Site.Title }}">
@@ -16,7 +15,9 @@
 {{ else }}
 <meta property="og:type" content="website">
 {{ end }}
-{{ if .Params.Imgname }}
+{{ if .Params.Ogname }}
+<meta property="og:image" content="{{ .Params.Ogname }}">
+{{ else if .Params.Imgname }}
 <meta property="og:image" content="{{ .Params.Imgname.Name }}">
 {{ else if .Params.Caption }}
 <meta property="og:image" content="{{ .Params.Caption.Name }}">
@@ -38,9 +39,16 @@
 {{- end -}}
 {{- end -}}
 {{ if .Site.Params.Twitter.Name }}
+<link rel="me" href="https://twitter.com/{{ .Site.Params.Twitter.Name }}">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="{{ .Site.Params.Twitter.Name }}">
 <meta name="twitter:creator" content="{{ .Site.Params.Twitter.Name }}">
+{{ end }}
+{{ if .Site.Params.Mastodon.Name }}
+<link rel="me" href="https://scholar.social/{{ .Site.Params.Mastodon.Name }}">
+{{ end }}
+{{ if .Site.Params.Sameas }}
+<link rel="me" href="{{ .Site.Params.Sameas }}">
 {{ end }}
 {{- if .Keywords -}}
 <meta property="keywords" content ="{{ delimit .Keywords ", " }}">
