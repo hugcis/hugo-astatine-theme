@@ -65,8 +65,11 @@
 <meta property="keywords" content ="{{ delimit (apply .Params.Tags "lower" ".") ", " }}">
 {{- end -}}
 <!-- Style configuration -->
-{{ $CSS := resources.Match "css/**.css" | resources.Concat "main.css" | resources.Minify }}
-<link rel="stylesheet" href="{{ $CSS.Permalink }}" media="all" type="text/css">
+<!-- {{ $CSS := resources.Match "css/**.css" | resources.Concat "main.css" | resources.Minify }}
+     <link rel="stylesheet" href="{{ $CSS.Permalink }}" media="all" type="text/css"> -->
+{{ $style := resources.Get "css/style.css" }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+
 <!-- Icon configuration -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">

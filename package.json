@@ -1,0 +1,14 @@
+{
+  "name": "Tailwind build",
+  "description": "description",
+  "version": "1.0.0",
+  "author": "Hugo Cisneros <hmj.cisneros@gmail.com>",
+  "license": "MIT",
+  "main": "",
+"scripts": {
+    "build-tw": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/style.css"
+  },
+
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -1,10 +1,11 @@
-<nav class="nav">
-  <div class="nav-main">
-      <a href="{{ .Site.BaseURL }}" class="nav-title">{{ .Site.Title }}</a>
+<nav class="nav flex flex-row flex-wrap">
+  <div class="nav-main basis-1/5">
+    <a href="{{ .Site.BaseURL }}" class="nav-title">{{ .Site.Title }}</a>
   </div>
-  <ul class="nav-links">
+  <span class="grow-2"></span>
+  <ul class="nav-links basis-4/5 flex flex-row flex-wrap">
     {{ range .Site.Menus.main }}
-    <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+    <li class="basis-1/8"><a href="{{ .URL }}">{{ .Name }}</a></li>
     {{ end }}
   </ul>
 </nav>
