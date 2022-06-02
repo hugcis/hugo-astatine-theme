@@ -17,4 +17,12 @@
     @apply font-bold;
     @apply text-xl;
   }
+  a {
+    @apply text-blue-800;
+  }
+  a:hover {
+    @apply text-gray-900;
+    @apply border-b-2;
+    @apply border-slate-200;
+  }
 }
