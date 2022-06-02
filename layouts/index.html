@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 
-<main class="content h-card">
+<main class="content h-card container m-auto">
     {{ partial "info.html" . }}
 
     {{ .Content }}
@@ -10,7 +10,7 @@
     {{ end }}
 
     {{ range .Params.Publications }}
-    <div class="pub-wrapper" id="{{anchorize .title}}" itemscope itemtype="http://schema.org/ScholarlyArticle">
+    <div class="pub-wrapper inline-flex flex-wrap items-center my-1.5 p-2.5 rounded" id="{{anchorize .title}}" itemscope itemtype="http://schema.org/ScholarlyArticle">
         <div class="pub-image" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
             <img alt="{{ .title }} paper illustration" itemprop="url" src="{{ .image }}" style="width: 100%;"/>
         </div>

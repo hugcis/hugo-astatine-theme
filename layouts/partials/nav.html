@@ -1,11 +1,10 @@
-<nav class="nav flex flex-row flex-wrap">
-  <div class="nav-main basis-1/5">
-    <a href="{{ .Site.BaseURL }}" class="nav-title">{{ .Site.Title }}</a>
+<nav class="nav m-auto flex flex-row flex-wrap justify-between container items-center">
+  <div class="nav-main my-2.5">
+    <a href="{{ .Site.BaseURL }}" class="nav-title  py-2.5 text-xl">{{ .Site.Title }}</a>
   </div>
-  <span class="grow-2"></span>
-  <ul class="nav-links basis-4/5 flex flex-row flex-wrap">
+  <ul class="nav-links flex flex-row flex-wrap justify-between text-lg">
     {{ range .Site.Menus.main }}
-    <li class="basis-1/8"><a href="{{ .URL }}">{{ .Name }}</a></li>
+    <li class="p-2.5 first:pl-0 last:pr-0"><a href="{{ .URL }}">{{ .Name }}</a></li>
     {{ end }}
   </ul>
 </nav>

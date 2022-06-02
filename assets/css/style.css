@@ -423,6 +423,28 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
+h1 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+h1, h2 {
+  font-weight: 700;
+  padding-bottom: 1rem;
+  border-bottom-width: 1px;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 *, ::before, ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -470,6 +492,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .container {
   width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media (min-width: 640px) {
@@ -502,25 +526,44 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
+.m-auto {
+  margin: auto;
+}
+
+.my-1\.5 {
+  margin-top: 0.375rem;
+  margin-bottom: 0.375rem;
+}
+
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.my-2\.5 {
+  margin-top: 0.625rem;
+  margin-bottom: 0.625rem;
+}
+
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .flex {
   display: flex;
 }
 
+.inline-flex {
+  display: inline-flex;
+}
+
 .list-item {
   display: list-item;
 }
 
-.basis-1\/5 {
-  flex-basis: 20%;
-}
-
-.basis-4\/5 {
-  flex-basis: 80%;
+.basis-60 {
+  flex-basis: 15rem;
 }
 
 .flex-row {
@@ -529,4 +572,69 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.border-0 {
+  border-width: 0px;
+}
+
+.p-2\.5 {
+  padding: 0.625rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.py-2\.5 {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.leading-snug {
+  line-height: 1.375;
+}
+
+.first\:pl-0:first-child {
+  padding-left: 0px;
+}
+
+.last\:pr-0:last-child {
+  padding-right: 0px;
 }
