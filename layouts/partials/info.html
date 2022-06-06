@@ -7,7 +7,7 @@
             {{ end }}
             {{ end }}
             <source srcset="{{ .Site.Params.imgname.Name }}"{{ if .Site.Params.imgname.Type }} type="{{ .Site.Params.Imgname.Type }}"{{ end }}>
-            <img class="main-image u-photo" itemprop="contentUrl" alt="Main picture" src="{{ .Site.Params.imgname.Name }}">
+            <img class="main-image u-photo mx-auto" itemprop="contentUrl" alt="Main picture" src="{{ .Site.Params.imgname.Name }}">
         </picture>
     </div>
     <div class="contact-info  basis-60 grow shrink-2 leading-snug text-base">
@@ -37,7 +37,7 @@
                         media="(prefers-color-scheme: dark)">
                 {{ end }}
                 {{ if .light }}
-                <img class="email" src="{{ .light }}" alt="Email screenshot">
+                <img class="email h-5 inline" src="{{ .light }}" alt="Email screenshot">
                 {{ end }}
             </picture>
             {{ end }}

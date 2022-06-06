@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
+  body {
+    @apply tracking-wide;
+  }
   h1 {
     @apply text-3xl;
   }
@@ -11,6 +14,7 @@
   h1, h2 {
     @apply font-bold;
     @apply pb-4;
+    @apply my-4;
     @apply border-b;
   }
   h3 {
@@ -24,5 +28,27 @@
     @apply text-gray-900;
     @apply border-b-2;
     @apply border-slate-200;
+  }
+  code {
+      @apply text-base;
+      @apply rounded-sm;
+      @apply px-px;
+      @apply py-1;
+      @apply bg-slate-50;
+  }
+  p, ul, ol {
+      @apply my-4;
+  }
+  li {
+      @apply list-disc;
+  }
+  ul, ol {
+      @apply pl-10;
+  }
+  hr {
+      @apply w-8/12;
+      @apply mx-auto;
+      @apply my-10;
+      @apply h-0.5;
   }
 }

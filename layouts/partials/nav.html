@@ -1,10 +1,10 @@
 <nav class="nav m-auto flex flex-row flex-wrap justify-between container items-center">
   <div class="nav-main my-2.5">
-    <a href="{{ .Site.BaseURL }}" class="nav-title  py-2.5 text-xl">{{ .Site.Title }}</a>
+    <a href="{{ .Site.BaseURL }}" class="nav-title py-2.5 text-2xl text-zinc-600 hover:border-b-0">{{ .Site.Title }}</a>
   </div>
-  <ul class="nav-links flex flex-row flex-wrap justify-between text-lg">
+  <ul class="nav-links flex flex-row flex-wrap justify-between text-lg my-2.5">
     {{ range .Site.Menus.main }}
-    <li class="p-2.5 first:pl-0 last:pr-0"><a href="{{ .URL }}">{{ .Name }}</a></li>
+    <li class="p-2.5 first:pl-0 last:pr-0 list-none"><a class="text-zinc-600 hover:border-b-0" href="{{ .URL }}">{{ .Name }}</a></li>
     {{ end }}
   </ul>
 </nav>

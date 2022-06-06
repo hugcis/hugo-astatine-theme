@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 
-<main class="content h-card container m-auto p-2.5">
+{{ partial "content_start.html" "" }}
     {{ partial "info.html" . }}
 
     {{ .Content }}
@@ -10,18 +10,17 @@
     {{ end }}
 
     {{ range .Params.Publications }}
-    <div class="pub-wrapper inline-flex flex-wrap items-center my-1.5 p-2.5 rounded bg-slate-100 box-border" id="{{anchorize .title}}" itemscope itemtype="http://schema.org/ScholarlyArticle">
+    <div class="pub-wrapper w-full inline-flex flex-wrap items-center my-1.5 p-2.5 rounded bg-slate-100 box-border leading-tight justify-around" id="{{anchorize .title}}" itemscope itemtype="http://schema.org/ScholarlyArticle">
         <div class="pub-image basis-40 grow-0 shrink" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
             <img alt="{{ .title }} paper illustration" itemprop="url" src="{{ .image }}" style="width: 100%;"/>
         </div>
-        <div class="publication grow shrink-2 basis-3/4 my-1.5">
+        <div class="publication grow shrink-2 basis-3/4 my-1.5 mx-2">
             <b><span itemprop="author">{{- .me -}}</span></b>,
             {{ range .authors }}
             <span itemprop="author">{{- . -}}</span>
             {{ end }}
             <br>
-            <b><a href="{{ .pdf }}"> <span itemprop="name"> {{ .title }} </span>
-                </a></b>
+            <b><a href="{{ .pdf }}"> <span itemprop="name"> {{ .title }} </span></a></b>
             <meta itemprop="headline" content="{{ .title }}"/>
             <br>
             {{ if .journal }}
@@ -30,12 +29,12 @@
             <meta itemprop="datePublished" content="{{- .date -}}">{{- .date -}}.
             </div>
             {{ with .description }}
-            <div itemprop="description" class="pub-description">{{ . }}</div>
+            <div itemprop="description" class="pub-description text-sm my-1.5">{{ . }}</div>
             {{ end }}
-            <div class="pub-link-wrapper">
-                {{ if .citation }}<span class="publication-link"> <a class="open-modal" data-target="#open-modal-{{ .title | urlize }}">Cite</a></span>{{ end }}
+            <div class="pub-link-wrapper mt-1.5 text-sm">
+                {{ if .citation }}<span class="publication-link cursor-pointer bg-sky-600 rounded-sm p-0.5 mr-1"> <a class="open-modal text-white" data-target="#open-modal-{{ .title | urlize }}">Cite</a></span>{{ end }}
             {{- range .links -}}
-                <span class="publication-link"><a itemprop="mainEntityOfPage" href="{{ .url }}">{{ .name }}</a></span>
+                <span class="publication-link bg-sky-600 rounded-sm p-0.5 mr-1"><a class="text-white" itemprop="mainEntityOfPage" href="{{ .url }}">{{ .name }}</a></span>
             {{- end }}
             </div>
         </div>
@@ -44,8 +43,8 @@
     <hr>
     {{ range .Params.Publications }}
     {{ if .citation }}
-    <div id="#open-modal-{{ .title | urlize}}" class="modal-window">
-        <div>
+    <div id="#open-modal-{{ .title | urlize}}" class="modal-window bg-tp-black invisible fixed top-0 left-0 right-0 bottom-0 transition-all pointer-events-none">
+        <div class="absolute top-1/2 left-1/2 p-8 bg-white rounded-md max-w-4/5 -translate-x-1/2 -translate-y-1/2">
             <a id="#close-modal-{{ .title | urlize}}" title="Close" class="modal-close">✕</a>
             <h3>Cite <i>{{ .title }}</i></h3>
             <button class="modal-copy-citation" id="#copy-{{ substr (sha256 .citation) 0 8 }}">Copy to clipboard</button>

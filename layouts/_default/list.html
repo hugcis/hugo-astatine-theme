@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 
-<main class="content" role="main">
+{{ partial "content_start.html" "" }}
     {{.Content}}
     {{ range .Pages }}
     {{ partial "list-item.html" . }}
