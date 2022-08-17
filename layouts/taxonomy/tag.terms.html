@@ -1,12 +1,13 @@
 {{ partial "header.html" . }}
 
 <main class="content">
-
+    <p>All the tags in the website, weighted by their frequency</p>
+  <hr>
   <div class="tag-cloud">
     <h2 class="tag-cloud-title">{{ i18n "tags" }}</h2>
     {{ if not (eq (len $.Site.Taxonomies.tags) 0) }}
     {{ $fontUnit := "rem" }}
-    {{ $largestFontSize := 2.5 }}
+    {{ $largestFontSize := 2.8 }}
     {{ $smallestFontSize := 1.0 }}
     {{ $fontSpread := sub $largestFontSize $smallestFontSize }}
     {{ $max := add (len (index $.Site.Taxonomies.tags.ByCount 0).Pages) 1 }}

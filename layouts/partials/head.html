@@ -36,6 +36,14 @@
 {{ $description := printf "%s %s" "Notes about " (strings.TrimPrefix "Notes on: " .Title) }}
 <meta property="og:description" content="{{ $description }}">
 <meta name="Description" property="description" content="{{ $description }}">
+{{- else if and (eq .Type "tags") (ne .Kind "taxonomy") }}
+{{ $description := printf "%s %s" "All articles tagged with " .Title }}
+<meta property="og:description" content="{{ $description }}">
+<meta name="Description" property="description" content="{{ $description }}">
+{{- else if and (eq .Type "tags") (eq .Kind "taxonomy") }}
+{{ $description := printf "%s" "A list of all the tags in the site. They are arranged in a word cloud" }}
+<meta property="og:description" content="{{ $description }}">
+<meta name="Description" property="description" content="{{ $description }}">
 {{- end -}}
 {{- end -}}
 {{ if .Site.Params.Twitter.Name }}

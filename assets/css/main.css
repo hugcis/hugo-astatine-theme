@@ -96,6 +96,12 @@ figure.center {
     margin:0 auto;
 }
 
+figcaption > p {
+    margin:0 auto;
+    text-align: center;
+}
+
+
 div.center {
     text-align: center;
 }
@@ -135,6 +141,11 @@ a.post-title {
 
 .post-title h2 {
     margin: 0;
+}
+
+.bookmark-title h3 {
+    font-size: 12pt;
+    margin: 10px 0;
 }
 
 .list-item-date {
@@ -377,6 +388,10 @@ a.article-author:active {
     justify-content: center;
 }
 
+.list-item {
+    min-height: 40px;
+}
+
 .list-item a {
     display: inline-block;
     box-sizing: border-box;
@@ -421,6 +436,7 @@ a.article-author:active {
 .tag-cloud-item {
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 .tag-cloud-item li {
@@ -656,6 +672,10 @@ th {
     margin-top: 5px;
 }
 
+ul.no-left-padding {
+    list-style-type: none;
+    padding-left: 0;
+}
 
 .modal-window {
     position: fixed;
