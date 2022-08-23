@@ -5,7 +5,8 @@
     <div class="pub-image basis-40 grow-0 shrink" itemprop="image"
          itemscope itemtype="http://schema.org/ImageObject">
         <img alt="{{ .title }} paper illustration"
-             itemprop="url" src="{{ .image }}" style="width: 100%;"/>
+             itemprop="url" src="{{ .image }}"
+             style="width: 100%;"/>
     </div>
     <div class="publication grow shrink-2 basis-3/4 my-1.5 mx-2">
         <b><span itemprop="author">{{- .me -}}</span></b>,
@@ -13,7 +14,11 @@
         <span itemprop="author">{{- . -}}</span>
         {{ end }}
         <br>
-        <b><a href="{{ .pdf }}"> <span itemprop="name"> {{ .title }} </span></a></b>
+        <b>
+            <a href="{{ .pdf }}">
+                <span itemprop="name">{{ .title }}</span>
+            </a>
+        </b>
         <meta itemprop="headline" content="{{ .title }}"/>
         <br>
         {{ if .journal }}
