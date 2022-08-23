@@ -1,13 +1,16 @@
 {{ partial "header.html" . }}
 
-<main class="content" role="main">
-
+{{ partial "content_start.html" }}
   <br>
   <a href="/tags/"><b>&#8592; Browse all tags</b></a>
   <div class="list">
-      <h2 class="list-title">{{ .Title }}</h2>
-      {{ range .RegularPages }}
-      {{ partial "list-item.html" . }}
+      <h1 class="list-title">{{ .Title }}</h1>
+      {{ range .RegularPages.GroupBy "Section" }}
+        <h2>{{ .Key |humanize }}</h2>
+        {{ range .Pages }}
+          {{ partial "list-item.html" . }}
+        {{ end }}
+        <hr>
       {{ end }}
   </div>
 </main>

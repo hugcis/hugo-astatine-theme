@@ -1,0 +1,45 @@
+<div class="pub-wrapper w-full inline-flex flex-wrap items-center
+            my-1.5 p-2.5 rounded bg-slate-100 dark:bg-slate-700 box-border
+            leading-tight justify-around" id="{{anchorize .title}}"
+     itemscope itemtype="http://schema.org/ScholarlyArticle">
+    <div class="pub-image basis-40 grow-0 shrink" itemprop="image"
+         itemscope itemtype="http://schema.org/ImageObject">
+        <img alt="{{ .title }} paper illustration"
+             itemprop="url" src="{{ .image }}" style="width: 100%;"/>
+    </div>
+    <div class="publication grow shrink-2 basis-3/4 my-1.5 mx-2">
+        <b><span itemprop="author">{{- .me -}}</span></b>,
+        {{ range .authors }}
+        <span itemprop="author">{{- . -}}</span>
+        {{ end }}
+        <br>
+        <b><a href="{{ .pdf }}"> <span itemprop="name"> {{ .title }} </span></a></b>
+        <meta itemprop="headline" content="{{ .title }}"/>
+        <br>
+        {{ if .journal }}
+        <div>
+        In <span itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+            <i itemprop="name">{{- .journal -}}</i></span>,
+        {{ end }}
+        <meta itemprop="datePublished" content="{{- .date -}}">{{- .date -}}.
+        </div>
+        {{ with .description }}
+        <div itemprop="description" class="pub-description text-sm my-1.5">{{ . }}</div>
+        {{ end }}
+        <div class="pub-link-wrapper mt-1.5 text-sm">
+            {{ if .citation }}
+            <span class="publication-link cursor-pointer
+                        bg-sky-600 dark:bg-sky-700
+                         rounded-sm p-1 pr-0 mr-1">
+                <a class="open-modal text-white dark:text-zinc-200"
+                   data-target="#open-modal-{{ .title | urlize }}">Cite</a>
+            </span>
+            {{ end }}
+            {{- range .links -}}
+            <span class="publication-link bg-sky-600 dark:bg-sky-700 rounded-sm p-1 pr-0 last:pr-1 mr-1">
+                <a class="text-white dark:text-zinc-200" itemprop="mainEntityOfPage" href="{{ .url }}">{{ .name }}</a>
+            </span>
+            {{- end }}
+        </div>
+    </div>
+</div>

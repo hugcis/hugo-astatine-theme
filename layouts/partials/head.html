@@ -36,6 +36,14 @@
 {{ $description := printf "%s %s" "Notes about " (strings.TrimPrefix "Notes on: " .Title) }}
 <meta property="og:description" content="{{ $description }}">
 <meta name="Description" property="description" content="{{ $description }}">
+{{- else if and (eq .Type "tags") (ne .Kind "taxonomy") }}
+{{ $description := printf "%s %s" "All articles tagged with " .Title }}
+<meta property="og:description" content="{{ $description }}">
+<meta name="Description" property="description" content="{{ $description }}">
+{{- else if and (eq .Type "tags") (eq .Kind "taxonomy") }}
+{{ $description := printf "%s" "A list of all the tags in the site. They are arranged in a word cloud" }}
+<meta property="og:description" content="{{ $description }}">
+<meta name="Description" property="description" content="{{ $description }}">
 {{- end -}}
 {{- end -}}
 {{ if .Site.Params.Twitter.Name }}
@@ -57,8 +65,10 @@
 <meta property="keywords" content ="{{ delimit (apply .Params.Tags "lower" ".") ", " }}">
 {{- end -}}
 <!-- Style configuration -->
-{{ $CSS := resources.Match "css/**.css" | resources.Concat "main.css" | resources.Minify }}
-<link rel="stylesheet" href="{{ $CSS.Permalink }}" media="all" type="text/css">
+<!-- {{ $CSS := resources.Match "css/**.css" | resources.Concat "main.css" | resources.Minify }}
+     <link rel="stylesheet" href="{{ $CSS.Permalink }}" media="all" type="text/css"> -->
+{{ $style := resources.Get "css/style.css" | resources.Minify }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
 <!-- Icon configuration -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -68,3 +78,25 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="webmention" href="https://webmention.io/hugocisneros.com/webmention">
 <link rel="pingback" href="https://webmention.io/hugocisneros.com/xmlrpc">
+<script>
+ function updateMode() {
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
+ }
+ function toggleMode() {
+     if (localStorage.theme === 'dark') {
+        // Whenever the user explicitly chooses light mode
+        localStorage.theme = 'light';
+     }
+     else {
+        // Whenever the user explicitly chooses dark mode
+        localStorage.theme = 'dark';
+     }
+     updateMode()
+ }
+ window.onload = updateMode()
+</script>
