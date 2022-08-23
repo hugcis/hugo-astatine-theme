@@ -32,8 +32,8 @@
                 {{ .street }}
             </span>
             <br>
-            {{ with .postal_code }} <span itemprop="postalCode">{{ . }}</span>{{ end }}
-            {{ with .locality }} <span itemprop="addressLocality">{{ . }}</span>{{ end }}
+            {{ with .postal_code }}<span itemprop="postalCode">{{ . }}</span>{{ end }}
+            {{ with .locality }}<span itemprop="addressLocality">{{ . }}</span>{{ end }}
             <br>
             {{ with .email }}
             <picture>
