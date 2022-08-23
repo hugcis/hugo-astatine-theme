@@ -4,6 +4,8 @@
 @layer base {
   body {
     @apply tracking-wide;
+    @apply dark:bg-zinc-800;
+    @apply dark:text-zinc-300;
   }
   h1 {
     @apply text-3xl;
@@ -20,21 +22,38 @@
   h3 {
     @apply font-bold;
     @apply text-xl;
+    @apply my-2
+  }
+  h4 {
+    @apply font-bold;
+    @apply text-lg;
+    @apply my-1
   }
   a {
     @apply text-blue-800;
+    @apply dark:text-blue-300;
   }
   a:hover {
     @apply text-gray-900;
+    @apply dark:text-gray-200;
     @apply border-b-2;
     @apply border-slate-200;
   }
   code {
       @apply text-base;
       @apply rounded-sm;
-      @apply px-px;
+      @apply px-1;
       @apply py-1;
-      @apply bg-slate-50;
+      @apply bg-slate-100;
+      @apply dark:bg-slate-800;
+  }
+  pre {
+    overflow: auto;
+    @apply px-2;
+  }
+  pre code {
+    @apply bg-transparent;
+    @apply text-sm;
   }
   p, ul, ol {
       @apply my-4;
@@ -50,5 +69,55 @@
       @apply mx-auto;
       @apply my-10;
       @apply h-0.5;
+      @apply dark:border-zinc-500
   }
+  dt {
+    font-variant-caps: all-small-caps;
+    @apply font-bold;
+  }
+  dd {
+    @apply mb-4;
+    @apply ml-8;
+  }
+  img {
+    @apply mx-auto;
+    @apply dark:brightness-[.8];
+    @apply dark:contrast-125;
+  }
+  figure {
+    @apply sm:mx-6;
+    @apply md:mx-12;
+  }
+  figcaption {
+    @apply text-center;
+  }
+  blockquote {
+    @apply bg-slate-200;
+    @apply dark:bg-slate-700;
+    @apply m-8;
+    @apply py-2;
+    @apply border-l-4;
+    @apply border-slate-400;
+    @apply pl-4;
+    @apply pr-2;
+    @apply italic;
+    @apply font-serif;
+    @apply text-lg;
+    @apply after:content-[close-quote];
+    @apply after:text-5xl;
+    @apply before:text-5xl;
+    @apply before:text-slate-400;
+    @apply after:text-slate-400;
+    @apply after:leading-[.1em];
+    @apply before:leading-[.1em];
+    @apply before:mr-1;
+    @apply after:mr-1;
+    @apply after:align-[-.4em];
+    @apply before:align-[-.4em];
+    @apply before:content-[open-quote];
+  }
+  blockquote p {
+    @apply inline;
+  }
+
 }

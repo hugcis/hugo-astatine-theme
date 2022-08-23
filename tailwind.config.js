@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["content/**/*.md", "layouts/**/*.html"],
+  content: ["content/**/*.md", "layouts/**/*.html", "../personal-website/layouts/**/*.html", "../personal-website/content/**/*.md"],
   theme: {
     container: {
       center: true,
@@ -32,7 +32,12 @@ module.exports = {
                "segoe ui", "helvetica neue", "helvetica",
                "Cantarell", "Ubuntu", "roboto", "noto", "arial", "sans-serif"],
       },
+      gridTemplateColumns: {
+        'minimal-list-item': '15% 85%',
+        'list-item': '.6fr 3fr auto 1fr',
+      }
     }
   },
   plugins: [],
+  darkMode: 'class',
 }

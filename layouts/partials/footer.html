@@ -1,8 +1,8 @@
       <footer class="footer container h-10 text-center">
-        <ul class="footer-links">
+        <ul class="">
           {{ if isset .Site.Params "blogrss" }}
           <li class="inline-block list-none">
-            <a class="rss-link inline-block"
+            <a class="rss-link inline-block text-neutral-800 dark:text-neutral-400 border-none"
                href="{{ "/blog/index.xml" }}"
                type="application/rss+xml"
                target="_blank">
@@ -11,8 +11,11 @@
             </a>
           </li>
           {{ end }}
-          <li class="inline-block"><a href="https://github.com/hugcis/hugo-astatine-theme">Code</a></li>
-          <li class="inline-block">© {{ .Site.Params.authorName}} {{ now.Format "2006" }}</li>
+          <li class="before:content-['•'] inline-block">
+            <a class="text-neutral-800 dark:text-neutral-400 border-none" href="https://github.com/hugcis/hugo-astatine-theme">Code</a></li>
+          <li class="before:content-['•'] text-neutral-800 dark:text-neutral-400 inline-block">
+            © {{ .Site.Params.authorName}} {{ now.Format "2006" }}
+          </li>
         </ul>
       </footer>
     </div>

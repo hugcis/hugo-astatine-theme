@@ -1,5 +1,5 @@
 {{ if (or (.Params.categories) (.Params.tags)) }}
-<ul class="article-taxonomy">
+<ul class="list-none pl-0 font-sm align-left">
 {{ if .Params.categories }}
 <hr>
 <li>
@@ -10,16 +10,19 @@
     {{ . }}
     </span>
 </a>{{ end }}
-</li>
+</li >
 {{ end }}
 {{ if .Params.tags }}
-<li>
+<li class="list-none">
     Tags:
     {{ range $index, $tag := .Params.tags }}
-    <a  href="{{ "tags/" | relURL }}{{ . | urlize }}">
-    <span class="tag-item">
-        {{ $logo := resources.Get "images/tag_logo.svg" }}
-        <img class="tag-logo" src="{{ $logo.Permalink }}" alt="Logo of a tag: indicates that a tag item follows.">
+    <a class="inline-block mt-2 mr-2 border-none text-neutral-800 dark:text-neutral-200" href="{{ "tags/" | relURL }}{{ . | urlize }}">
+        <span class="flex flex-row justify-start items-center dark:bg-zinc-900 dark:hover:bg-zinc-800
+                     hover:bg-zinc-200 bg-zinc-100 p-1
+                     rounded-t border-b-2 border-zinc-300 hover:border-zinc-500">
+            {{ $logo := resources.Get "images/tag_logo.svg" }}
+            <img class="h-5 mr-1 inline" src="{{ $logo.Permalink }}"
+                 alt="Logo of a tag: indicates that a tag item follows.">
         {{ . }}
         </span>
     </a>

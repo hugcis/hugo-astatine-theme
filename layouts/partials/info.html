@@ -1,5 +1,5 @@
 <div class="head container flex justify-around flex-wrap items-center" itemscope itemtype="http://schema.org/Person">
-    <div class="picture basis-60 grow shrink" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="picture p-2 mx-8 basis-20 grow shrink" itemscope itemtype="http://schema.org/ImageObject">
         <picture>
             {{ if .Params.ImgOther }}
             {{ range .Params.ImgOther }}
@@ -10,8 +10,8 @@
             <img class="main-image u-photo mx-auto" itemprop="contentUrl" alt="Main picture" src="{{ .Site.Params.imgname.Name }}">
         </picture>
     </div>
-    <div class="contact-info  basis-60 grow shrink-2 leading-snug text-base">
-        <a  class="u-url font-bold" rel="me" itemprop="url" href="{{ .Permalink }}"><h1 class="p-name border-0" itemprop="name">{{ .Params.Name }}</h1></a>
+    <div class="mx-4 ml-8 basis-60 grow shrink-2 leading-snug text-base">
+        <a  class="u-url font-bold" rel="me" itemprop="url" href="{{ .Permalink }}"><h1 class="text-black dark:text-zinc-300 p-name border-0" itemprop="name">{{ .Params.Name }}</h1></a>
         {{ if .Params.sameas }}
         {{ range .Params.sameas }}
         <link href="{{ . }}" rel="me" itemprop="sameAs">
