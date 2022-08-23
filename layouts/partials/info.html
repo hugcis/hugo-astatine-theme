@@ -1,5 +1,5 @@
-<div class="head container flex justify-around flex-wrap items-center" itemscope itemtype="http://schema.org/Person">
-    <div class="picture p-2 mx-8 basis-20 grow shrink" itemscope itemtype="http://schema.org/ImageObject">
+<div class="head container grid sm:grid-cols-2 grid-cols-1 justify-around flex-wrap items-center" itemscope itemtype="http://schema.org/Person">
+    <div class="picture p-8 max-w-[80%] mx-8 basis-20 grow shrink" itemscope itemtype="http://schema.org/ImageObject">
         <picture>
             {{ if .Params.ImgOther }}
             {{ range .Params.ImgOther }}

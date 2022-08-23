@@ -1,19 +1,24 @@
       <footer class="footer container h-10 text-center">
         <ul class="">
           {{ if isset .Site.Params "blogrss" }}
-          <li class="inline-block list-none">
+          <li class="first:before:content-none before:content-['•'] inline-block list-none">
             <a class="rss-link inline-block text-neutral-800 dark:text-neutral-400 border-none"
                href="{{ "/blog/index.xml" }}"
                type="application/rss+xml"
                target="_blank">
-            {{ i18n "footerRSS" }}
-            <img class="rss-icon w-4 inline-block" src="/img/RSS.svg" alt="RSS feed icon">
+              {{ i18n "footerRSS" }}
+              <img class="rss-icon w-4 inline-block"
+                   src="{{ "/img/RSS.svg" | absURL }}"
+                   alt="RSS feed icon"/>
             </a>
           </li>
           {{ end }}
-          <li class="before:content-['•'] inline-block">
-            <a class="text-neutral-800 dark:text-neutral-400 border-none" href="https://github.com/hugcis/hugo-astatine-theme">Code</a></li>
-          <li class="before:content-['•'] text-neutral-800 dark:text-neutral-400 inline-block">
+          <li class="first:before:content-none before:content-['•'] inline-block list-none">
+            <a class="text-neutral-800 dark:text-neutral-400 border-none"
+               href="https://github.com/hugcis/hugo-astatine-theme">Code</a>
+          </li>
+          <li class="first:before:content-none before:content-['•']
+                     text-neutral-800 dark:text-neutral-400 inline-block list-none">
             © {{ .Site.Params.authorName}} {{ now.Format "2006" }}
           </li>
         </ul>

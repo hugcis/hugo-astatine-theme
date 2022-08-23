@@ -30,9 +30,9 @@
         <li class="h-7 pl-2.5 pr-0 list-none">
           <button type="button" onclick="toggleMode()" class="h-full">
             <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 hidden dark:inline" id="dark-mode-button-img"
-                 src="img/light_mode.svg">
+                 src="{{ "/img/light_mode.svg" | absURL  }}">
             <img class="h-7 w-7 max-h-full mb-1.5 p-1.5 inline dark:hidden" id="dark-mode-button-img"
-                src="img/dark_mode.svg">
+                 src="{{ "/img/dark_mode.svg" | absURL }}">
           </button>
         </li>
       </ul>
