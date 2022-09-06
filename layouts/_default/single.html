@@ -1,6 +1,4 @@
-{{ partial "header.html" . }}
-
-{{ partial "content_start.html" "" }}
+{{ define "main" }}
     <article class="article" itemprop="mainEntity" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="title-container">
     <h1 class="article-title" itemprop="name">{{ .Title }}</h1>
@@ -48,7 +46,4 @@
     </div>
     {{ end }}
     </article>
-
-</main>
-
-{{ partial "footer.html" . }}
+{{ end }}

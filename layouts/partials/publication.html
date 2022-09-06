@@ -32,19 +32,21 @@
         <div itemprop="description" class="pub-description text-sm my-1.5">{{ . }}</div>
         {{ end }}
         <div class="pub-link-wrapper mt-1.5 text-sm">
-            {{ if .citation }}
+            {{- if .citation -}}
             <span class="publication-link cursor-pointer
                         bg-sky-600 dark:bg-sky-700
-                         rounded-sm p-1 pr-0 mr-1">
+                         rounded-sm p-1 mr-1">
                 <a class="open-modal text-white dark:text-zinc-200"
-                   data-target="#open-modal-{{ .title | urlize }}">Cite</a>
-            </span>
-            {{ end }}
+                   data-target="#open-modal-{{ .title | urlize }}">Cite</a></span>
+            {{- end -}}
             {{- range .links -}}
-            <span class="publication-link bg-sky-600 dark:bg-sky-700 rounded-sm p-1 pr-0 last:pr-1 mr-1">
-                <a class="text-white dark:text-zinc-200" itemprop="mainEntityOfPage" href="{{ .url }}">{{ .name }}</a>
-            </span>
-            {{- end }}
+            <span class="publication-link bg-sky-600
+                         dark:bg-sky-700 rounded-sm p-1
+                         pr-0 last:pr-1 mr-1"><a class="text-white dark:text-zinc-200"
+                                                 itemprop="mainEntityOfPage" href="{{ .url }}">
+                {{ .name }}
+            </a></span>
+            {{- end -}}
         </div>
     </div>
 </div>

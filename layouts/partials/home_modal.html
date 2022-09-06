@@ -4,9 +4,11 @@
      return ((event) => {
          if (event.target.id.startsWith("#open-modal") || 
              event.target.id.startsWith("#close-modal") || 
-             event.target.className == "open-modal") {
+             event.target.classList.contains("open-modal")) {
              event.stopPropagation();
-             win.classList.toggle("invisible")
+             win.classList.toggle("invisible");
+             win.classList.toggle("pointer-events-auto");
+             document.body.classList.toggle("pointer-events-none");
          }
      });
  }

@@ -1,13 +1,8 @@
-{{ partial "header.html" . }}
-
-<main class="content" role="main">
-
+{{ define "main" }}
   <div class="list">
     <h2 class="list-title">{{ .Title }}</h2>
     {{ range .Pages }}
     {{ partial "list-item.html" . }}
     {{ end }}
   </div>
-</main>
-
-{{ partial "footer.html" . }}
+{{ end }}

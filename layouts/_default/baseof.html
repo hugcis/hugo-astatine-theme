@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    <header class="md:px-0 px-2">
+        {{ partial "header.html" . }}
+    </header>
+    <main class="content h-card container mt-2 m-auto
+                 leading-loose md:px-0 px-2 z-0 {{ . }}"
+          role="main">
+    {{ block "main" . }}
+    {{/* Main content of the page */}}
+    {{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+  </body>
+</html>

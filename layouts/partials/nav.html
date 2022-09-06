@@ -3,13 +3,16 @@
     <div class="nav-main my-2.5">
       <a href="{{ .Site.BaseURL }}" class="nav-title py-2.5 text-2xl text-zinc-600 dark:text-zinc-300 hover:border-b-0">{{ .Site.Title }}</a>
     </div>
-    <button data-collapse-toggle="navbar-default" type="button"
-            class="inline-flex items-center p-2 ml-3 text-sm text-gray-500
-                                  rounded-lg md:hidden hover:bg-gray-100
-                                  focus:outline-none focus:ring-2
-                                  focus:ring-gray-200 dark:text-gray-400
-                                  dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-default" aria-expanded="false">
+    <button type="button"
+            onclick="toggleMenu()"
+            class="inline-flex items-center p-2 ml-3
+                  text-sm text-gray-500
+                  rounded-lg md:hidden hover:bg-gray-100
+                  focus:outline-none focus:ring-2
+                  focus:ring-gray-200 dark:text-gray-400
+                  dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default"
+            aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-6 h-6" aria-hidden="true" fill="currentColor"
              viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -20,9 +23,9 @@
         </svg>
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="grid grid-flow-col items-center justify-between text-lg my-2.5">
+      <ul class="grid md:grid-flow-col items-center justify-between text-lg my-2.5">
         {{ range .Site.Menus.main }}
-        <li class="p-2.5 first:pl-0 list-none">
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b list-none">
           <a class="text-zinc-600 dark:text-zinc-300
                     hover:border-b-0" href="{{ .URL }}">{{ .Name }}</a>
         </li>

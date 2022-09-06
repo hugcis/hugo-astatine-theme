@@ -1,21 +1,18 @@
-{{ partial "header.html" . }}
-
-{{ partial "content_start.html" }}
-  <div class="category">
-    <h2 class="category-title">{{ i18n "categories" }}</h2>
-    {{ $data := .Data }}
-    {{ range $key, $value := .Data.Terms.Alphabetical }}
-    <ul class="category-item">
-      <li>
-        <a href="{{ $.Site.LanguagePrefix }}/{{ $data.Plural }}/{{ $value.Name | urlize }}">{{ $value.Name }}</a>
-        <span class="category-item-count">
-          <sup>({{ $value.Count }})</sup>
-       </span>
-      </li>
-    </ul>   
-    {{ end }}
-  </div>
-
-</main>
-
-{{ partial "footer.html" . }}
+{{ define "main" }}
+<div class="category">
+  <h2 class="category-title">{{ i18n "categories" }}</h2>
+  {{ $data := .Data }}
+  {{ range $key, $value := .Data.Terms.Alphabetical }}
+  <ul class="category-item">
+    <li>
+      <a href="{{ (path.Join $data.Plural  ($value.Name | urlize)) | absURL }}">
+        {{ $value.Name }}
+      </a>
+      <span class="category-item-count">
+        <sup>({{ $value.Count }})</sup>
+      </span>
+    </li>
+  </ul>
+  {{ end }}
+</div>
+{{ end }}

@@ -1,6 +1,4 @@
-{{ partial "header.html" . }}
-
-{{ partial "content_start.html" }}
+{{ define "main" }}
   <br>
   <a href="/tags/"><b>&#8592; Browse all tags</b></a>
   <div class="list">
@@ -13,6 +11,4 @@
         <hr>
       {{ end }}
   </div>
-</main>
-
-{{ partial "footer.html" . }}
+{{ end }}

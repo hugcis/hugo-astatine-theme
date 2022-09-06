@@ -1,29 +1,24 @@
-      <footer class="footer container h-10 text-center">
-        <ul class="">
-          {{ if isset .Site.Params "blogrss" }}
-          <li class="first:before:content-none before:content-['•'] inline-block list-none">
-            <a class="rss-link inline-block text-neutral-800 dark:text-neutral-400 border-none"
-               href="{{ "/blog/index.xml" }}"
-               type="application/rss+xml"
-               target="_blank">
-              {{ i18n "footerRSS" }}
-              <img class="rss-icon w-4 inline-block"
-                   src="{{ "img/RSS.svg" | absURL }}"
-                   alt="RSS feed icon"/>
-            </a>
-          </li>
-          {{ end }}
-          <li class="first:before:content-none before:content-['•'] inline-block list-none">
-            <a class="text-neutral-800 dark:text-neutral-400 border-none"
-               href="https://github.com/hugcis/hugo-astatine-theme">Code</a>
-          </li>
-          <li class="first:before:content-none before:content-['•']
-                     text-neutral-800 dark:text-neutral-400 inline-block list-none">
-            © {{ .Site.Params.authorName}} {{ now.Format "2006" }}
-          </li>
-        </ul>
-      </footer>
-    </div>
-  {{ partial "extra_js.html" . }}
-  </body>
-</html>
+<footer class="footer container h-10 text-center">
+  <ul class="pl-0">
+    {{ if isset .Site.Params "blogrss" }}
+    <li class="first:before:content-none before:content-['•'] inline-block list-none">
+      <a class="rss-link inline-block text-neutral-800 dark:text-neutral-400 border-none"
+          href="{{ "/blog/index.xml" }}"
+          type="application/rss+xml"
+          target="_blank">
+        {{ i18n "footerRSS" }}
+        <img class="rss-icon w-4 inline-block"
+              src="{{ "img/RSS.svg" | absURL }}"
+              alt="RSS feed icon"/>
+      </a>
+    </li>
+    {{ end }}
+    <li class="ml-2 first:before:content-none before:content-['•'] inline-block list-none"><a class="ml-2 text-neutral-800 dark:text-neutral-400 border-none"
+          href="https://github.com/hugcis/hugo-astatine-theme">Code</a>
+    </li>
+    <li class="ml-2 first:before:content-none before:content-['•']
+                text-neutral-800 dark:text-neutral-400 inline-block list-none"><span class="ml-2">© {{ .Site.Params.authorName}} {{ now.Format "2006" }}</span>
+    </li>
+  </ul>
+</footer>
+{{ partial "extra_js.html" . }}

@@ -1,6 +1,4 @@
-{{ partial "header.html" . }}
-
-{{ partial "content_start.html" }}
+{{ define "main" }}
     <p>All the tags in the website, weighted by their frequency</p>
   <hr>
   <div>
@@ -33,6 +31,4 @@
   </div>
 
   <hr>
-</main>
-
-{{ partial "footer.html" . }}
+{{ end }}

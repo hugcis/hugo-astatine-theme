@@ -833,6 +833,10 @@ blockquote p {
   pointer-events: none;
 }
 
+.pointer-events-auto {
+  pointer-events: auto;
+}
+
 .visible {
   visibility: visible;
 }
@@ -885,6 +889,14 @@ blockquote p {
   left: 50%;
 }
 
+.z-50 {
+  z-index: 50;
+}
+
+.z-0 {
+  z-index: 0;
+}
+
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -913,11 +925,6 @@ blockquote p {
 .my-6 {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-}
-
-.mx-8 {
-  margin-left: 2rem;
-  margin-right: 2rem;
 }
 
 .mx-auto {
@@ -977,6 +984,10 @@ blockquote p {
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
 }
 
 .ml-8 {
@@ -1165,10 +1176,6 @@ blockquote p {
   list-style-type: none;
 }
 
-.grid-flow-col {
-  grid-auto-flow: column;
-}
-
 .auto-rows-\[_150px\] {
   grid-auto-rows: 150px;
 }
@@ -1270,6 +1277,10 @@ blockquote p {
 
 .border-b-2 {
   border-bottom-width: 2px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
 }
 
 .border-none {
@@ -1561,10 +1572,6 @@ blockquote p {
   content: var(--tw-content);
 }
 
-.first\:pl-0:first-child {
-  padding-left: 0px;
-}
-
 .first\:before\:content-none:first-child::before {
   --tw-content: none;
   content: var(--tw-content);
@@ -1741,10 +1748,6 @@ blockquote p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .sm\:grid-cols-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-  }
-
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1761,5 +1764,22 @@ blockquote p {
 
   .md\:w-auto {
     width: auto;
+  }
+
+  .md\:grid-flow-col {
+    grid-auto-flow: column;
+  }
+
+  .md\:border-none {
+    border-style: none;
+  }
+
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .md\:first\:pl-0:first-child {
+    padding-left: 0px;
   }
 }

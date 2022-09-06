@@ -33,6 +33,7 @@ module.exports = {
                "Cantarell", "Ubuntu", "roboto", "noto", "arial", "sans-serif"],
       },
       gridTemplateColumns: {
+        'nav': 'repeat(auto-fill, minmax(80px, 1fr))',
         'minimal-list-item': '15% 85%',
         'list-item': '.6fr 3fr auto 1fr',
       }

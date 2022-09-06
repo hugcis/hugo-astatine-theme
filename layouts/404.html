@@ -1,15 +1,11 @@
-{{ partial "header" . }}
-
-{{ partial "content_start.html" . }}
-      <div>
-        <h1 class="error-page-title">404</h1>
-      </div>
-      <div class="error-page-content">
-        {{ i18n "errorMessage" }}
-        <div>
-          <a href="{{ .Site.BaseURL }}"><b>Homepage</b></a>
-        </div>
-      </div>
-  </main>
-
-{{ partial "footer" . }}
+{{ define "main" }}
+<div>
+  <h1 class="error-page-title">404</h1>
+</div>
+<div class="error-page-content">
+  {{ i18n "errorMessage" }}
+  <div>
+    <a href="{{ .Site.BaseURL }}"><b>Homepage</b></a>
+  </div>
+</div>
+{{ end }}

@@ -1,10 +1,6 @@
-{{ partial "header.html" . }}
-
-{{ partial "content_start.html" "" }}
+{{ define "main" }}
     {{.Content}}
     {{ range .Pages }}
     {{ partial "list-item.html" . }}
     {{ end }}
-</main>
-
-{{ partial "footer.html" . }}
+{{ end }}

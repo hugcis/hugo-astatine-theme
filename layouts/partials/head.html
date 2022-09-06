@@ -65,8 +65,6 @@
 <meta property="keywords" content ="{{ delimit (apply .Params.Tags "lower" ".") ", " }}">
 {{- end -}}
 <!-- Style configuration -->
-<!-- {{ $CSS := resources.Match "css/**.css" | resources.Concat "main.css" | resources.Minify }}
-     <link rel="stylesheet" href="{{ $CSS.Permalink }}" media="all" type="text/css"> -->
 {{ $style := resources.Get "css/style.css" | resources.Minify }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 <!-- Icon configuration -->
@@ -98,5 +96,14 @@
      }
      updateMode()
  }
- window.onload = updateMode()
+ window.onload = updateMode();
+ function toggleMenu() {
+     let navbar = document.getElementById("navbar-default");
+     if (navbar.classList.contains("hidden")) {
+        navbar.classList.remove("hidden");
+     }
+     else {
+        navbar.classList.add("hidden");
+     }
+ }
 </script>
