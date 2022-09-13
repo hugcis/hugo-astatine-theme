@@ -3,8 +3,9 @@
      class="modal-window bg-tp-black invisible fixed top-0 left-0
          right-0 bottom-0 transition-all pointer-events-none z-50">
     <div class="absolute top-1/2 left-1/2 p-8 bg-white
+                max-w-full
                 rounded-md max-w-4/5 -translate-x-1/2 -translate-y-1/2">
-        <a id="#close-modal-{{ .title | urlize}}" title="Close" class="modal-close">✕</a>
+        <button id="#close-modal-{{ .title | urlize}}" title="Close" class="modal-close">✕</button>
         <h3>Cite <i>{{ .title }}</i></h3>
         <button class="modal-copy-citation" id="#copy-{{ substr (sha256 .citation) 0 8 }}">Copy to clipboard</button>
         <pre><code id="{{ substr (sha256 .citation) 0 8 }}">{{ .citation }}</code></pre>

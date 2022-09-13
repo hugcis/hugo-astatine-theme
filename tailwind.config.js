@@ -1,5 +1,10 @@
 module.exports = {
-  content: ["content/**/*.md", "layouts/**/*.html", "../personal-website/layouts/**/*.html", "../personal-website/content/**/*.md"],
+  content: [
+    "content/**/*.md",
+    "layouts/**/*.html",
+    "../personal-website/layouts/**/*.html",
+    "../personal-website/content/**/*.md"
+  ],
   theme: {
     container: {
       center: true,

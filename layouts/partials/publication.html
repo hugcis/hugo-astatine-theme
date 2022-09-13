@@ -36,8 +36,8 @@
             <span class="publication-link cursor-pointer
                         bg-sky-600 dark:bg-sky-700
                          rounded-sm p-1 mr-1">
-                <a class="open-modal text-white dark:text-zinc-200"
-                   data-target="#open-modal-{{ .title | urlize }}">Cite</a></span>
+                <button class="open-modal text-white dark:text-zinc-200"
+                   data-target="#open-modal-{{ .title | urlize }}">Cite</button></span>
             {{- end -}}
             {{- range .links -}}
             <span class="publication-link bg-sky-600
