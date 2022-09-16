@@ -6,7 +6,7 @@
          itemscope itemtype="http://schema.org/ImageObject">
         <img alt="{{ .title }} paper illustration"
              itemprop="url" src="{{ .image }}"
-             style="width: 100%;"/>
+             class="w-full"/>
     </div>
     <div class="publication grow shrink-2 basis-3/4 my-1.5 mx-2">
         <b><span itemprop="author">{{- .me -}}</span></b>,
@@ -34,18 +34,33 @@
         <div class="pub-link-wrapper mt-1.5 text-sm">
             {{- if .citation -}}
             <span class="publication-link cursor-pointer
-                        bg-sky-600 dark:bg-sky-700
+                         bg-sky-600 dark:bg-sky-700
+                         hover:bg-sky-800
+                         dark:hover:bg-sky-500
+                         text-white
+                         dark:text-zinc-200
+                         dark:hover:text-gray-800
+                         hover:text-gray-900
                          rounded-sm p-1 mr-1">
-                <button class="open-modal text-white dark:text-zinc-200"
-                   data-target="#open-modal-{{ .title | urlize }}">Cite</button></span>
+                <button class="open-modal text-inherit"
+                        data-target="#open-modal-{{- .title | urlize -}}">Cite</button>
+            </span>
             {{- end -}}
             {{- range .links -}}
             <span class="publication-link bg-sky-600
                          dark:bg-sky-700 rounded-sm p-1
-                         pr-0 last:pr-1 mr-1"><a class="text-white dark:text-zinc-200"
-                                                 itemprop="mainEntityOfPage" href="{{ .url }}">
-                {{ .name }}
-            </a></span>
+                         dark:hover:bg-sky-500
+                         hover:bg-sky-800
+                         pr-0 last:pr-1 mr-1">
+                <a class="border-none
+                         text-white
+                         dark:text-zinc-200
+                         hover:text-gray-900
+                          hover:dark:text-gray-800"
+                   itemprop="mainEntityOfPage" href="{{ .url }}">
+                    {{ .name }}
+                </a>
+            </span>
             {{- end -}}
         </div>
     </div>

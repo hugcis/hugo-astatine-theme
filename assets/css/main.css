@@ -50,6 +50,9 @@
   pre {
     overflow: auto;
     @apply px-2;
+    @apply mx-2;
+    @apply max-w-full;
+    @apply mb-6;
   }
   pre code {
     @apply bg-transparent;
@@ -119,5 +122,16 @@
   blockquote p {
     @apply inline;
   }
+}
 
+@layer base {
+  #isso-thread h4 {
+    @apply dark:text-zinc-400;
+  }
+  #isso-thread input, #isso-thread .textarea {
+    @apply dark:bg-zinc-700;
+  }
+  .isso-comment-footer a, .isso-comment-footer span {
+    display: inline-block;
+  }
 }

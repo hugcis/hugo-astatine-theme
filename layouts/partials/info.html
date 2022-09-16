@@ -27,7 +27,7 @@
         <link href="{{ . }}" rel="me" itemprop="sameAs">
         {{ end }}
         {{ end }}
-        <h3 itemprop="jobTitle">{{ .Params.Personal_title }}</h3>
+        <h2 itemprop="jobTitle" class="text-xl my-0 border-none">{{ .Params.Personal_title }}</h2>
             {{range .Params.Address }}
             <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
             <span itemprop="streetAddress">

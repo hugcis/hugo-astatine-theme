@@ -13,11 +13,15 @@
       </a>
     </li>
     {{ end }}
-    <li class="ml-2 first:before:content-none before:content-['•'] inline-block list-none"><a class="ml-2 text-neutral-800 dark:text-neutral-400 border-none"
+    <li class="ml-2 first:before:content-none before:content-['•']
+               inline-block list-none">
+      <a class="ml-2 text-neutral-800
+                dark:text-neutral-400 border-none"
           href="https://github.com/hugcis/hugo-astatine-theme">Code</a>
     </li>
     <li class="ml-2 first:before:content-none before:content-['•']
-                text-neutral-800 dark:text-neutral-400 inline-block list-none"><span class="ml-2">© {{ .Site.Params.authorName}} {{ now.Format "2006" }}</span>
+                text-neutral-800 dark:text-neutral-400 inline-block list-none">
+      <span class="ml-2">© {{ .Site.Params.authorName}} {{ now.Format "2006" }}</span>
     </li>
   </ul>
 </footer>
