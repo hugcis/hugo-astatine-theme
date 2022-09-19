@@ -5,8 +5,10 @@ description = "Another Hugo minimal theme - for academics"
 
 homepage = "https://github.com/hugcis/hugo-astatine-theme"
 
-tags = ["blog", "minimal", "personal", "responsive"]
-features = ["blog", "taxonomies", "privacy"]
+demosite = "https://hugcis.github.io/hugo-astatine-theme/"
+
+tags = ["blog", "minimal", "personal", "responsive", "dark"]
+features = ["blog", "taxonomies", "privacy", "dark"]
 min_version = 0.25
 
 [author]

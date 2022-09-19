@@ -24,7 +24,7 @@
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="grid md:grid-flow-col items-center justify-between text-lg my-2.5">
-        {{ range .Site.Menus.main }}
+        {{ range  sort .Site.Menus.main "Weight" }}
         <li class="p-2.5 md:first:pl-0 md:border-none border-b list-none">
           <a class="text-zinc-600 dark:text-zinc-300
                     hover:border-b-0" href="{{ .URL }}">{{ .Name }}</a>

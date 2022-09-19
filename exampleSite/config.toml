@@ -1,22 +1,35 @@
+# This is the configuration file for the example website of the Hugo theme
+# Astatine (see https://github.com/hugcis/hugo-astatine-theme).
+#
+# The URL from which the site will be served
 baseurl = "https://hugcis.github.io/hugo-astatine-theme/"
+# Language used
 languageCode = "en-us"
+# Website title
 title = "Astatine Theme"
+# Theme used
 theme = "hugo-astatine-theme"
+
 preserveTaxonomyNames = true
 rssLimit = 10
 paginate = 10
+
+# Code highlighting
 pygmentsCodefences = true
 pygmentsStyle = "native"
 
-
+# Taxonomies (only tags and categories are supported out of the box but you can
+# add more)
 [taxonomies]
     category = "categories"  
     tag = "tags"
 
+# Configure permalinks style
 [permalinks]
     post = "/:slug/"
     page = "/:slug/"
 
+# Configure main navbar links. They can have a weight to select the order.
 [[menu.main]]
     name = "Posts"
     url = "/post/"
@@ -37,19 +50,26 @@ pygmentsStyle = "native"
     url = "/categories/"
     weight = -130
 
+# Site wide params and SEO
 [params]
+    # Site description. Individual pages can have descriptions too but if
+    # missing it will fallback to that one.
     description = "The homepage of Astatine"
+    # Author of the site
     authorName = "Jack Harkness"
+    # Main image for the author. This will be the default image for SEO.
     [params.imgname]
         name = "img/main.jpg"
+        # Add an alt description for the image
         alt = "Profile picture"
 
-    [params.logo]
-    url = "logo.png"
-    width = 50
-    height = 50
-    alt = "Logo"
+    # Optional: add a twitter handle and mastodon handle for SEO.
+    # [params.twitter]
+        # name = "@Jack_harkness"
+    # [params.mastodon]
+        # name = "@jkharkness"
 
 
+# Sitemap location (default is /sitemap.xml)
 [sitemap]
   filename = "sitemap.xml"
