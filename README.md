@@ -11,15 +11,15 @@ See [the example site in action](https://hugcis.github.io/hugo-astatine-theme/).
 
 ### Light mode
 
-![Post list screenshot](images/post_list.png)
+![Post list screenshot](https://github.com/hugcis/hugo-astatine-theme/blob/master/images/post_list.png)
 
-![Post screenshot](images/post.png)
+![Post screenshot](https://github.com/hugcis/hugo-astatine-theme/blob/master/images/post.png)
 
 ### Dark mode
 
-![Post list dark screenshot](images/post_list_dark.png)
+![Post list dark screenshot](https://github.com/hugcis/hugo-astatine-theme/blob/master/images/post_list_dark.png)
 
-![Post dark screenshot](images/post_dark.png)
+![Post dark screenshot](https://github.com/hugcis/hugo-astatine-theme/blob/master/images/post_dark.png)
 
 ## Features
 
