@@ -1,30 +1,49 @@
-<div class="my-4" itemscope itemtype="http://schema.org/BlogPosting">
-    <div class="grid grid-cols-list-item items-center gap-2">
+<div>
+    <a href="{{ .Permalink }}" itemprop="url"
+       class="grid grid-cols-minimal-list-item items-center pb-2 border-b-2
+             text-black dark:text-zinc-300 hover:text-neutral-500
+             dark:border-zinc-600
+             hover:dark:border-zinc-300
+             hover:dark:text-zinc-100">
         {{ if .Params.Caption }}
-        <img itemprop="image" alt="{{ .Params.Caption.Alt }}"
-             src="{{ .Params.Caption.Name }}" class="max-w-[90%] max-h-20 w-auto col-span-1">
-        <a href="{{ .Permalink }}" itemprop="url" class="my-4 text-black border-none">
-            <h3 itemprop="name">{{ .Title }}</h3>
-        </a>
+            <img itemprop="image" alt="{{ .Params.Caption.Alt }}"
+                 src="{{ .Params.Caption.Name }}"
+                 class="flex-initial max-w-[90%] max-h-20 w-auto">
+        {{ else if .Params.Imgsources }}
+            {{ with .Params.Imgsources }}
+            <picture>
+                {{ if .dark }}
+                <source srcset="{{ .dark }}"
+                        alt="{{ .Alt }}"
+                        media="(prefers-color-scheme: dark)">
+                {{ end }}
+                {{ if .light }}
+                <img src="{{ .light }}" alt="{{ .Alt }}" class="flex-initial max-w-[90%] max-h-20 w-auto"/>
+                {{ end }}
+            </picture>
+            {{ end }}
         {{ else if .Params.Imgname }}
-        <img itemprop="image" alt="{{ .Params.Imgname.Alt }}"
-             src="{{ .Params.Imgname.Name }}" class="max-w-[90%] max-h-20 w-auto">
-        <a href="{{ .Permalink }}" itemprop="url"
-           class="my-4 text-black dark:text-neutral-300 border-none justify-self-start">
-            <h3 itemprop="name" class="border-b-2 border-white dark:border-zinc-800
-                          dark:hover:border-zinc-300
-                          hover:border-zinc-800 border-0">{{ .Title }}</h3>
-        </a>
-        {{ else }}
-        <a href="{{ .Permalink }}" itemprop="url" class="my-4 text-black border-none"
-           style="grid-column: 1 / span 2;"><h3 itemprop="name">{{ .Title }}</h3>
-        </a>
+            <img itemprop="image" alt="{{ .Params.Imgname.Alt }}"
+                src="{{ .Params.Imgname.Name }}"
+                class="flex-initial max-w-[90%] max-h-20 w-auto"/>
         {{ end }}
-        <span class="text-right text-zinc-800 dark:text-zinc-400 col-start-4"
-              itemprop="datePublished"
-              content="{{ .PublishDate.Format "2006-01-02T15:04:05Z0700" }}">
-        {{ .Date.Format "02/01/2006" }}
-        </span>
-        <meta itemprop="author" content="{{ .Site.Params.authorName }}">
+        <h3 itemprop="name" class="border-none pb-0 my-6">
+            {{ .Title }}
+        </h3>
+    </a>
+    <div style="margin-top: 1em">
+        {{ if .Params.Headline }}
+        <i itemprop="headline"
+           class="article-headline p-summary"
+           style="font-size: 15px;">
+            {{ .Params.Headline }}
+        </i>
+        {{ end }}
     </div>
+    <span class="list-item-date" itemprop="datePublished"
+          content="{{ .PublishDate.Format "2006-01-02T15:04:05Z0700" }}"
+          style="display: none;">
+        {{ .PublishDate.Format "2006-01-02T15:04:05Z0700" }}
+    </span>
+    <meta itemprop="author" content="{{ .Site.Params.authorName }}">
 </div>
