@@ -9,6 +9,7 @@
             <img itemprop="image" alt="{{ .Params.Caption.Alt }}"
                  src="{{ .Params.Caption.Name }}"
                  class="flex-initial max-w-[90%] max-h-20 w-auto">
+            <h3 itemprop="name" class="border-none pb-0 my-6">{{ .Title }}</h3>
         {{ else if .Params.Imgsources }}
             {{ with .Params.Imgsources }}
             <picture>
@@ -21,15 +22,16 @@
                 <img src="{{ .light }}" alt="{{ .Alt }}" class="flex-initial max-w-[90%] max-h-20 w-auto"/>
                 {{ end }}
             </picture>
+            <h3 itemprop="name" class="border-none pb-0 my-6">{{ .Title }}</h3>
             {{ end }}
         {{ else if .Params.Imgname }}
             <img itemprop="image" alt="{{ .Params.Imgname.Alt }}"
                 src="{{ .Params.Imgname.Name }}"
                 class="flex-initial max-w-[90%] max-h-20 w-auto"/>
+            <h3 itemprop="name" class="border-none pb-0 my-6">{{ .Title }}</h3>
+        {{ else }}
+            <h3 itemprop="name" class="border-none pb-0 my-6 col-span-2">{{ .Title }}</h3>
         {{ end }}
-        <h3 itemprop="name" class="border-none pb-0 my-6">
-            {{ .Title }}
-        </h3>
     </a>
     <div style="margin-top: 1em">
         {{ if .Params.Headline }}
