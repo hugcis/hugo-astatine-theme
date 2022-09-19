@@ -1,5 +1,5 @@
 +++
-date = "2018-02-09"
+date = "2018-05-09"
 title = "The actor is a gander"
 slug = "the-actor-is-a-gander"
 categories = [ "Post", "Metaphorsum" ]
