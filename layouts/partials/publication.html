@@ -28,9 +28,9 @@
         {{ end }}
         <meta itemprop="datePublished" content="{{- .date -}}">{{- .date -}}.
         </div>
-        {{ with .description }}
+        {{- with .description -}}
         <div itemprop="description" class="pub-description text-sm my-1.5">{{ . }}</div>
-        {{ end }}
+        {{- end -}}
         <div class="pub-link-wrapper mt-1.5 text-sm">
             {{- if .citation -}}
             <span class="publication-link cursor-pointer
@@ -57,7 +57,7 @@
                          hover:text-gray-900
                           hover:dark:text-gray-800"
                    itemprop="mainEntityOfPage" href="{{ .url }}">
-                    {{ .name }}
+                    {{- .name -}}
                 </a>
             </span>
             {{- end -}}
