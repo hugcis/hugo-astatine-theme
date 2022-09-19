@@ -911,8 +911,8 @@ blockquote p {
   z-index: 50;
 }
 
-.col-span-1 {
-  grid-column: span 1 / span 1;
+.col-span-2 {
+  grid-column: span 2 / span 2;
 }
 
 .col-start-4 {
@@ -1607,10 +1607,6 @@ blockquote p {
 .first\:before\:content-none:first-child::before {
   --tw-content: none;
   content: var(--tw-content);
-}
-
-.last\:pr-1:last-child {
-  padding-right: 0.25rem;
 }
 
 .hover\:border-b-0:hover {
