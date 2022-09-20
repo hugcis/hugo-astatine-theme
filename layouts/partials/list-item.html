@@ -1,4 +1,4 @@
-<div>
+<div class="mb-12">
     <a href="{{ .Permalink }}" itemprop="url"
        class="grid grid-cols-minimal-list-item items-center pb-2 border-b-2
              text-black dark:text-zinc-300 hover:text-neutral-500
@@ -33,15 +33,14 @@
             <h3 itemprop="name" class="border-none pb-0 my-6 col-span-2">{{ .Title }}</h3>
         {{ end }}
     </a>
-    <div style="margin-top: 1em">
-        {{ if .Params.Headline }}
+    {{ if .Params.Headline }}
+    <div class="mt-1">
         <i itemprop="headline"
-           class="article-headline p-summary"
-           style="font-size: 15px;">
+           class="article-headline p-summary text-base text-neutral-600 dark:text-neutral-400">
             {{ .Params.Headline }}
         </i>
-        {{ end }}
     </div>
+    {{ end }}
     <span class="list-item-date" itemprop="datePublished"
           content="{{ .PublishDate.Format "2006-01-02T15:04:05Z0700" }}"
           style="display: none;">
