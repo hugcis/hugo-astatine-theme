@@ -1,6 +1,6 @@
 <div class="mb-12">
     <a href="{{ .Permalink }}" itemprop="url"
-       class="grid grid-cols-minimal-list-item items-center pb-2 border-b-2
+       class="grid grid-cols-list-item items-center pb-2 border-b-2
              text-black dark:text-zinc-300 hover:text-neutral-500
              dark:border-zinc-600
              hover:dark:border-zinc-300
@@ -32,6 +32,10 @@
         {{ else }}
             <h3 itemprop="name" class="border-none pb-0 my-6 col-span-2">{{ .Title }}</h3>
         {{ end }}
+        <div class="list-item-date col-start-4 text-right text-neutral-600 dark:text-neutral-400" itemprop="datePublished"
+            content="{{ .PublishDate.Format "2006-01-02T15:04:05Z0700" }}">
+            {{ .PublishDate.Format "2006.01.02" }}
+        </div>
     </a>
     {{ if .Params.Headline }}
     <div class="mt-1">
@@ -41,10 +45,5 @@
         </i>
     </div>
     {{ end }}
-    <span class="list-item-date" itemprop="datePublished"
-          content="{{ .PublishDate.Format "2006-01-02T15:04:05Z0700" }}"
-          style="display: none;">
-        {{ .PublishDate.Format "2006-01-02T15:04:05Z0700" }}
-    </span>
     <meta itemprop="author" content="{{ .Site.Params.authorName }}">
 </div>

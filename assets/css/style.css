@@ -1041,6 +1041,10 @@ blockquote p {
   margin-bottom: 3rem;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1568,6 +1572,11 @@ blockquote p {
   color: rgb(82 82 82 / var(--tw-text-opacity));
 }
 
+.text-neutral-300 {
+  --tw-text-opacity: 1;
+  color: rgb(212 212 212 / var(--tw-text-opacity));
+}
+
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -1783,6 +1792,11 @@ blockquote p {
 .dark .dark\:text-neutral-500 {
   --tw-text-opacity: 1;
   color: rgb(115 115 115 / var(--tw-text-opacity));
+}
+
+.dark .dark\:text-neutral-600 {
+  --tw-text-opacity: 1;
+  color: rgb(82 82 82 / var(--tw-text-opacity));
 }
 
 .dark .dark\:hover\:border-zinc-300:hover {
