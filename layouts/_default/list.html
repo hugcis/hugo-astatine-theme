@@ -1,6 +1,6 @@
 {{ define "main" }}
-    {{.Content}}
+    {{ .Content }}
     {{ range .Pages }}
-    {{ partial "list-item.html" . }}
+        {{ partial "list-item.html" . }}
     {{ end }}
 {{ end }}

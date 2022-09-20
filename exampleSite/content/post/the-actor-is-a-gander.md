@@ -4,6 +4,9 @@ title = "The actor is a gander"
 slug = "the-actor-is-a-gander"
 categories = [ "Post", "Metaphorsum" ]
 tags = [ "Actor", "Visitor", "Snowflakes", "Interest" ]
+headline = "A frostless stop is a stream of the mind"
+readingtime = true
+aliases = ["2021/06/actor/", "2021/08/gander/"]
 +++
 
 However, a frostless stop is a stream of the mind. The actor is a gander. A garni person without [gorillas](https://en.wikipedia.org/wiki/Gorilla) is truly a vest of scentless plots.
