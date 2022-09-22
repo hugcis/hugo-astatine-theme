@@ -1,14 +1,27 @@
 {{ if .citation }}
 <div id="#open-modal-{{ .title | urlize}}"
      class="modal-window bg-tp-black invisible fixed top-0 left-0
-         right-0 bottom-0 transition-all pointer-events-none z-50">
+            right-0 bottom-0 transition-all pointer-events-none z-50">
     <div class="absolute top-1/2 left-1/2 p-8 bg-white
+                dark:bg-neutral-700
+
                 max-w-full
                 rounded-md max-w-4/5 -translate-x-1/2 -translate-y-1/2">
-        <button id="#close-modal-{{ .title | urlize}}" title="Close" class="modal-close">✕</button>
+        <button id="#close-modal-{{ .title | urlize}}" title="Close" class="modal-close rounded-sm p-2">✕</button>
         <h3>Cite <i>{{ .title }}</i></h3>
-        <button class="modal-copy-citation" id="#copy-{{ substr (sha256 .citation) 0 8 }}">Copy to clipboard</button>
-        <pre><code id="{{ substr (sha256 .citation) 0 8 }}">{{ .citation }}</code></pre>
+        <button class="modal-copy-citation pr-2 pl-1 my-2 ml-2
+                       bg-sky-600 dark:bg-sky-700 rounded-sm
+                       text-white
+                       dark:text-zinc-200
+                       dark:hover:text-gray-800
+                       hover:text-gray-900
+                       hover:bg-sky-800
+                       disabled:bg-neutral-500
+                       hover:disabled:text-white
+                       dark:hover:disabled:text-zinc-200
+                       dark:disabled:bg-neutral-500
+                       dark:hover:bg-sky-500" id="#copy-{{ substr (sha256 .citation) 0 8 }}">Copy to clipboard</button>
+        <pre class="bg-slate-100 dark:bg-slate-800"><code id="{{ substr (sha256 .citation) 0 8 }}">{{ .citation }}</code></pre>
     </div>
 </div>
 {{ end }}

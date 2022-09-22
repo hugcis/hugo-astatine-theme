@@ -32,11 +32,15 @@
                 var last = this.innerHTML;
                 navigator.clipboard
                          .writeText(citation_text.innerHTML)
-                         .then(() => {this.innerHTML = "Copied!"},
+                         .then(() => {
+                             this.innerHTML = "Copied!";
+                             this.disabled = true;
+                         },
                                () => {this.innerHTML = "Error copying!";});
                 clicked = true;
                 setTimeout(function () {
                     this.innerHTML = last;
+                    this.disabled = false;
                     clicked = false;
                 }.bind(this), 1000);
             }
