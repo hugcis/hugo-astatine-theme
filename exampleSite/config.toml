@@ -18,6 +18,10 @@ paginate = 10
 pygmentsCodefences = true
 pygmentsStyle = "native"
 
+# For https://webmention.io/
+webmention = ""
+pingback = ""
+
 # Taxonomies (only tags and categories are supported out of the box but you can
 # add more)
 [taxonomies]
@@ -68,6 +72,7 @@ pygmentsStyle = "native"
         # name = "@Jack_harkness"
     # [params.mastodon]
         # name = "@jkharkness"
+        # host = "scholar.social"
 
 
 # Sitemap location (default is /sitemap.xml)

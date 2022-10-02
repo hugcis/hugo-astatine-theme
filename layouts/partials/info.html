@@ -12,7 +12,7 @@
             <source srcset="{{ .Site.Params.imgname.Name }}"
                     {{ if .Site.Params.imgname.Type }} type="{{ .Site.Params.Imgname.Type }}"{{ end }}>
             <img class="main-image u-photo mx-auto"
-                 itemprop="contentUrl" alt="Main picture"
+            itemprop="contentUrl" alt="{{ .Site.Params.Imgname.Alt }}"
                  src="{{ .Site.Params.imgname.Name }}">
         </picture>
     </div>
