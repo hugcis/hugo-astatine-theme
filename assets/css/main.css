@@ -97,7 +97,10 @@
   blockquote {
     @apply bg-slate-200;
     @apply dark:bg-slate-700;
-    @apply m-8;
+    @apply my-8;
+    @apply sm:mx-0;
+    @apply md:mx-4;
+    @apply lg:mx-8;
     @apply py-2;
     @apply border-l-4;
     @apply border-slate-400;
@@ -122,6 +125,9 @@
   blockquote p {
     @apply inline;
   }
+  .isso-comment-footer {
+    display: inline-flex;
+  }
 }
 
 @layer base {
@@ -130,8 +136,5 @@
   }
   #isso-thread input, #isso-thread .textarea {
     @apply dark:bg-zinc-700;
-  }
-  .isso-comment-footer a, .isso-comment-footer span {
-    display: inline-block;
   }
 }

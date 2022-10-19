@@ -1,7 +1,8 @@
 <nav >
   <div class="container flex flex-wrap justify-between items-center mx-auto">
     <div class="nav-main my-2.5">
-      <a href="{{ .Site.BaseURL }}" class="nav-title py-2.5 text-2xl text-zinc-600 dark:text-zinc-300 hover:border-b-0">{{ .Site.Title }}</a>
+      <a href="{{ .Site.BaseURL }}" class="nav-title py-2.5 text-2xl
+               text-zinc-600 dark:text-zinc-300 hover:border-b-0">{{ .Site.Title }}</a>
     </div>
     <button type="button"
             onclick="toggleMenu()"
@@ -25,7 +26,7 @@
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="grid md:grid-flow-col items-center justify-between text-lg my-2.5">
         {{ range  sort .Site.Menus.main "Weight" }}
-        <li class="p-2.5 md:first:pl-0 md:border-none border-b list-none">
+        <li class="p-2.5 md:first:pl-0 md:border-none border-b dark:border-zinc-500 list-none">
           <a class="text-zinc-600 dark:text-zinc-300
                     hover:border-b-0" href="{{ .URL }}">{{ .Name }}</a>
         </li>
