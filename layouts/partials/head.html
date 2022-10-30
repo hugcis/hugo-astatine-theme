@@ -73,6 +73,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
+<link href="{{ .Site.BaseURL }}index.xml" type="application/atom+xml" rel="alternate" title="Sitewide Atom feed" />
 <meta name="theme-color" content="#ffffff">
 {{ if .Site.Params.Webmention }}
 <link rel="webmention" href="https://webmention.io/{{ .Site.Params.Webmention }}/webmention">
