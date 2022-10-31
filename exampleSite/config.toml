@@ -73,6 +73,9 @@ pingback = ""
     # [params.mastodon]
         # name = "@jkharkness"
         # host = "scholar.social"
+    
+    # Enable link to feed in footer
+    blogrss = true
 
 
 # Sitemap location (default is /sitemap.xml)
