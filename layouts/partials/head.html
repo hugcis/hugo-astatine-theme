@@ -77,9 +77,7 @@
 <meta name="theme-color" content="#ffffff">
 {{ if .Site.Params.Webmention }}
 <link rel="webmention" href="https://webmention.io/{{ .Site.Params.Webmention }}/webmention">
-{{ end }}
-{{ if .Site.Params.Pingback }}
-<link rel="pingback" href="https://webmention.io/{{ .Site.Params.Pingback }}/xmlrpc">
+<link rel="pingback" href="https://webmention.io/{{ .Site.Params.Webmention }}/xmlrpc">
 {{ end }}
 <!-- Common JS -->
 {{ $commonJs := resources.Get "js/common.js" | resources.Minify }}

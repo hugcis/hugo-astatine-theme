@@ -18,10 +18,6 @@ paginate = 10
 pygmentsCodefences = true
 pygmentsStyle = "native"
 
-# For https://webmention.io/
-webmention = ""
-pingback = ""
-
 # Taxonomies (only tags and categories are supported out of the box but you can
 # add more)
 [taxonomies]
@@ -76,6 +72,9 @@ pingback = ""
     
     # Enable link to feed in footer
     blogrss = true
+
+    # Enable pingback and webmention via webmention.io
+    webmention = "hugocisneros.com"
 
 
 # Sitemap location (default is /sitemap.xml)
