@@ -68,6 +68,13 @@ pygmentsStyle = "native"
         # name = "@Jack_harkness"
     # [params.mastodon]
         # name = "@jkharkness"
+        # host = "scholar.social"
+    
+    # Enable link to feed in footer
+    blogrss = true
+
+    # Enable pingback and webmention via webmention.io
+    webmention = "hugocisneros.com"
 
 
 # Sitemap location (default is /sitemap.xml)

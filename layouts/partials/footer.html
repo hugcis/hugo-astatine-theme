@@ -4,7 +4,7 @@
     {{ if isset .Site.Params "blogrss" }}
     <li class="first:before:content-none before:content-['•'] inline-block list-none">
       <a class="rss-link inline-block text-neutral-800 dark:text-neutral-400 border-none"
-          href="{{ "/blog/index.xml" }}"
+          href="{{ .Site.BaseURL }}{{ "blog/index.xml" }}"
           type="application/rss+xml"
           target="_blank">
         {{ i18n "footerRSS" }}
