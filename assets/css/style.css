@@ -1938,3 +1938,10 @@ blockquote p {
     padding-left: 0px;
   }
 }
+
+@media (min-width: 1024px) {
+  .lg\:mx-8 {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}

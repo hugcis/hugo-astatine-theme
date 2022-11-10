@@ -52,18 +52,24 @@
 <meta name="twitter:site" content="{{ .Site.Params.Twitter.Name }}">
 <meta name="twitter:creator" content="{{ .Site.Params.Twitter.Name }}">
 {{ end }}
-{{ if .Site.Params.Mastodon.Name }}
+{{ if (and .Site.Params.Mastodon.Name .Site.Params.Mastodon.Host) }}
 <link rel="me" href="https://{{ .Site.Params.Mastodon.Host }}/{{ .Site.Params.Mastodon.Name }}">
 {{ end }}
 {{ if .Site.Params.Sameas }}
 <link rel="me" href="{{ .Site.Params.Sameas }}">
 {{ end }}
+<!-- Keywords -->
 {{- if .Keywords -}}
 <meta property="keywords" content ="{{ delimit .Keywords ", " }}">
 {{- end -}}
 {{- if .Params.Tags -}}
 <meta property="keywords" content ="{{ delimit (apply .Params.Tags "lower" ".") ", " }}">
 {{- end -}}
+<!-- Webmention -->
+{{ if .Site.Params.Webmention }}
+<link rel="webmention" href="https://webmention.io/{{ .Site.Params.Webmention }}/webmention">
+<link rel="pingback" href="https://webmention.io/{{ .Site.Params.Webmention }}/xmlrpc">
+{{ end }}
 <!-- Style configuration -->
 {{ $style := resources.Get "css/style.css" | resources.Minify }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
@@ -75,10 +81,6 @@
 <link rel="manifest" href="/site.webmanifest">
 <link href="{{ .Site.BaseURL }}index.xml" type="application/atom+xml" rel="alternate" title="Sitewide Atom feed" />
 <meta name="theme-color" content="#ffffff">
-{{ if .Site.Params.Webmention }}
-<link rel="webmention" href="https://webmention.io/{{ .Site.Params.Webmention }}/webmention">
-<link rel="pingback" href="https://webmention.io/{{ .Site.Params.Webmention }}/xmlrpc">
-{{ end }}
 <!-- Common JS -->
 {{ $commonJs := resources.Get "js/common.js" | resources.Minify }}
 <script>{{ $commonJs.Content | safeJS }}</script>
