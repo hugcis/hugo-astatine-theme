@@ -1,11 +1,22 @@
 ---
+# === Required fields  ===
+# Your name 
+name: "Astatine"
+# Your profile picture
 imgname: 
   name: "img/main.jpg"
   alt: "Picture of me"
   type: image/jpeg
-  
-name: "Astatine"
+# More sources can be added (optional) using 
+# imgOther:
+#   - name: $IMAGE_PATH
+#     type: $IMAGE_TYPE
+#   - name: $IMAGE_PATH
+#     type: $IMAGE_TYPE
+# ...
+# A title (job title or "Researcher", "PhD student", etc.)
 personal_title: "Chemical element"
+# An address (you can list multiple)
 address: 
   - 
     name: Everywhere
@@ -13,6 +24,16 @@ address:
     postal_code: "000000"
     locality: Earth
 
+# === Optional fields ===
+# Add an email with a mailto: hyperlink
+# email: aaaa@example.com
+# Add an email "image" for spam protection. With light and dark mode
+# emailImg: 
+#   dark: /img/dark_email.png
+#   light: /img/light_email.png
+
+# List your publications. The required fields are pdf, title, and image 
+# (which should be the image path)
 publications:
   - 
     authors:
@@ -24,7 +45,7 @@ publications:
         - name: Capponi, L.
         - name: Cocolios, T. E.
         - name: De Witte, H.
-        - name: Eliav, E
+        - name: Eliav, E.
     title: "Measurement of the First Ionization Potential of Astatine by Laser Ionization Spectroscopy"
     date: 2013
     journal: Nature Communications
@@ -49,6 +70,7 @@ doi = {10.1038/ncomms2819}\n
         url: "https://www.researchgate.net/publication/236836716_Measurement_of_the_first_ionization_potential_of_astatine_by_laser_ionization_spectroscopy"
     description: The radioactive element astatine exists only in trace amounts in nature. Its properties can therefore only be explored by study of the minute quantities of artificially produced isotopes or by performing theoretical calculations. One of the most important properties influencing the chemical behaviour is the energy required to remove one electron from the valence shell, referred to as the ionization potential.
 ---
+
 # Bio
 
 I am a chemical element with the symbol At and atomic number 85. I am 
