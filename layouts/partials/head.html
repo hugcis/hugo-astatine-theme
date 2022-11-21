@@ -25,10 +25,6 @@
 <meta property="og:image" content="{{ .Site.Params.imgname.name }}">
 {{ end }}
 <meta property="og:url" content="{{ .Permalink }}">
-{{ if eq .RelPermalink "/" }}
-<meta property="og:description" content="{{ .Site.Params.description }}">
-<meta name="Description" property="description" content="{{ .Site.Params.description }}">
-{{- else -}}
 {{- if .Description -}}
 <meta property="og:description" content="{{ .Description }}">
 <meta name="Description" property="description" content="{{ .Description }}">
@@ -44,6 +40,9 @@
 {{ $description := printf "%s" "A list of all the tags in the site. They are arranged in a word cloud" }}
 <meta property="og:description" content="{{ $description }}">
 <meta name="Description" property="description" content="{{ $description }}">
+{{- else -}}
+<meta property="og:description" content="{{ .Site.Params.description }}">
+<meta name="Description" property="description" content="{{ .Site.Params.description }}">
 {{- end -}}
 {{- end -}}
 {{ if .Site.Params.Twitter.Name }}

@@ -54,7 +54,8 @@ pygmentsStyle = "native"
 [params]
     # Site description. Individual pages can have descriptions too but if
     # missing it will fallback to that one.
-    description = "The homepage of Astatine"
+    description = """The homepage of Astatine. This website is a demo the of the \
+    Hugo theme Astatine."""
     # Author of the site
     authorName = "Jack Harkness"
     # Main image for the author. This will be the default image for SEO.
