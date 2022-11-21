@@ -15,15 +15,16 @@ address:
 
 publications:
   - 
-    me: Rothe, S. 
     authors:
-        - Andreyev, A. N. 
-        - Antalic, S.
-        - Borschevsky, A.
-        - Capponi, L.
-        - Cocolios, T. E.
-        - De Witte, H.
-        - Eliav, E
+        - name: Rothe, S. 
+          me: true
+        - name: Andreyev, A. N. 
+        - name: Antalic, S.
+        - name: Borschevsky, A.
+        - name: Capponi, L.
+        - name: Cocolios, T. E.
+        - name: De Witte, H.
+        - name: Eliav, E
     title: "Measurement of the First Ionization Potential of Astatine by Laser Ionization Spectroscopy"
     date: 2013
     journal: Nature Communications

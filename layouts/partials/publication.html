@@ -9,9 +9,16 @@
              class="w-full"/>
     </div>
     <div class="publication grow shrink-2 basis-3/4 my-1.5 mx-2">
-        <b><span itemprop="author">{{- .me -}}</span></b>,
-        {{ range .authors }}
-        <span itemprop="author">{{- . -}}</span>
+        {{ range $author_index, $author_val := .authors }}
+        {{ if $author_val.me }}
+        <b>
+        {{ end }}
+            <span itemprop="author">{{- $author_val.name -}}</span>
+            {{- /* Add comma if not last author */ -}}
+            {{- if le $author_index (len .) -}},{{- end -}}
+        {{ if $author_val.me }}
+        </b>
+        {{ end }}
         {{ end }}
         <br>
         <b>
