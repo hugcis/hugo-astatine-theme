@@ -47,6 +47,7 @@
             </div>
         </div>
     {{ end }}
+    {{ if .Params.Lastmod }}
     <div class="text-neutral-500 mb-4">
         Last modified <span itemprop="dateModified"
                             datetime="{{ .Lastmod.Format  "2006-01-02T15:04:05Z0700" }}"
@@ -54,5 +55,6 @@
         {{ .Lastmod.Format "2006.01.02" }}
         </span>
     </div>
+    {{ end }}
 </article>
 {{ end }}

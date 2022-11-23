@@ -77,6 +77,11 @@ there by default, but you can change this in the configuration file (see
 [config.toml](https://github.com/hugcis/hugo-astatine-theme/blob/master/exampleSite/config.toml)
 ).
 
+### Taxonomies
+
+Posts can be placed in categories or have tags. List pages for the categories
+and tags can be accessed at the URLs `${BASE_URL}/categories/` and `${BASE_URL}/tags/`
+
 ## Syntax highlighting
 
 Astatine is using [Chroma](https://gohugo.io/content-management/syntax-highlighting/) and `pygmentsStyle = "native"` by default. If you would like to use another style you have to adjust the colors in `pre` in main.css.

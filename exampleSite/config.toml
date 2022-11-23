@@ -30,16 +30,19 @@ pygmentsStyle = "native"
     page = "/:slug/"
 
 # Configure main navbar links. They can have a weight to select the order.
+# This links to content within the content/post/ folder
 [[menu.main]]
     name = "Posts"
     url = "/post/"
     weight = -150
 
+# This links to the page about.md
 [[menu.main]]
     name = "About"
     url = "/about/"
     weight = -110
-    
+
+# Make the tags and categories pages accessible directly from the navbar.
 [[menu.main]]
     name = "Tags"
     url = "/tags/"
