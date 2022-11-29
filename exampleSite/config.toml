@@ -67,6 +67,9 @@ pygmentsStyle = "native"
         # Add an alt description for the image
         alt = "Profile picture"
 
+    # Indicate if you host Katex yourself. Defaults to using the CDN KaTex.
+    # hostedKaTex = false
+
     # Optional: add a twitter handle and mastodon handle for SEO.
     # [params.twitter]
         # name = "@Jack_harkness"

@@ -53,12 +53,24 @@ file located in the
 [exampleSite](https://github.com/hugcis/hugo-astatine-theme/blob/master/exampleSite)
 folder. It has some documentation for the available fields.
 
+### LaTeX rendering with KaTex
+
+The theme uses KaTex to render math. The JS code is only inserted in the footer
+of the page if you set the page parameter `KaTeX` to `true`. 
+
+If you wish to host KaTeX yourself, you can set the site parameter `hostedKaTex`
+to true in the configuration file `config.toml`. The path for the self-hosted
+KaTeX is set to be `/js/katex/...`, so you can get it hosted on your Hugo
+website by grabbing [the latest KaTeX
+release](https://github.com/KaTeX/KaTeX/releases) and placing the `katex` folder
+in `${SITE_ROOT}/static/js/`.
+
 ## Content Types
 
 ### Main page
 
 ![Screenshot of the main page of the example
-site.](images/screenshot.png)
+site.](/images/screenshot.png)
 
 This is the main page of your site. You can find the source that generated the
 page at

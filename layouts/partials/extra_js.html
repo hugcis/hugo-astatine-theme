@@ -1,4 +1,11 @@
-{{/* This file can be used to insert custom JavaScript to end of pages */}}
+{{/* This file can be used to insert custom JavaScript to the end of pages.
+     If you need to add more JS to your site, you can override this
+     partial template
+*/}}
+{{/* To render math when the KaTex parameter is set */}}
+{{- if .Params.KaTex -}}
+{{ partial "katex.html" . }}
+{{- end -}}
 {{- if eq .Kind "home" -}}
 {{ partial "home_modal.html" . }}
 {{- end -}}
