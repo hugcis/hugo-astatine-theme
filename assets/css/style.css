@@ -1232,6 +1232,10 @@ blockquote p {
   list-style-type: none;
 }
 
+.list-decimal {
+  list-style-type: decimal;
+}
+
 .auto-rows-\[_150px\] {
   grid-auto-rows: 150px;
 }

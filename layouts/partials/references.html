@@ -1,0 +1,15 @@
+{{ if .Params.references }}
+<hr>
+<div class="mb-8" >
+<h3>References</h3>
+    <div class="references-list" >
+        <ol>
+        {{- range $elem_index, $elem_val := .Params.references -}}
+        <li  class="list-decimal" id="{{ $elem_val.id }}">
+            <b>{{- $elem_val.authors -}}</b>. {{- $elem_val.text -}}
+        </li>
+        {{- end -}}
+        </ol>
+    </div>
+</div>
+{{ end }}

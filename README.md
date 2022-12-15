@@ -31,6 +31,8 @@ See [the example site in action](https://hugcis.github.io/hugo-astatine-theme/).
 - Taxonomies
 - Syntax highlighting
 - Microdata
+- Tailwind CSS
+- Latex
 
 ## Installation
 
@@ -43,7 +45,8 @@ $ cd themes
 $ git clone https://github.com/hugcis/hugo-astatine-theme
 ```
 
-You can now build your 
+You can now build your website using the `hugo` command from your site folder.
+
 
 ## Configuration
 
@@ -52,6 +55,39 @@ Take a look at the sample
 file located in the
 [exampleSite](https://github.com/hugcis/hugo-astatine-theme/blob/master/exampleSite)
 folder. It has some documentation for the available fields.
+
+### TailwindCSS
+
+If you don't want to use Tailwind and just want to write CSS yourself, you can
+ignore this.
+
+If you are familiar with TailwindCSS and wish to change some of the tailwind
+classes in the theme, or add you own in you website's layout files, you can copy
+the configuration to your webiste, with `cp
+themes/hugo-astatine-theme/tailwind.config.js ./`. Remember to set the right
+path in `tailwind.config.js`. For example, if you installed the theme as
+explained above, you may set it to:
+
+``` javascript
+module.exports = {
+  content: [
+    "content/**/*.md",
+    "layouts/**/*.html",
+    "themes/hugo-astatine-them/layouts/**/*.html",
+    "themes/hugo-astatine-them/content/**/*.md" # If you happen to put html 
+    # within some of the markdown files.
+  ]
+}
+```
+
+Then, from the website root, run this to build the stylesheet and rebuild it
+automatically on change:
+
+``` bash
+npx tailwindcss -i ./themes/hugo-astatine-theme/css/main.css \
+    -o ./themes/hugo-astatine-theme/css/style.css \
+    --watch
+```
 
 ### LaTeX rendering with KaTex
 

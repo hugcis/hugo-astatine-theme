@@ -17,8 +17,12 @@
                 </time>
             </a>
             {{ end }}
-            {{ if .Params.Author }}
-            <a class="text-gray-600 dark:text-gray-400 text-right border-none p-author h-card" rel="author" href="{{ .Site.BaseURL }}" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ .Params.Author }}</span></a>
+            {{ if not .Params.HideAuthor }}
+                {{ if .Params.Author }}
+                <a class="text-gray-600 dark:text-gray-400 text-right border-none p-author h-card" rel="author" href="{{ .Site.BaseURL }}" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ .Params.Author }}</span></a>
+                {{ else if .Site.Params.AuthorName }}
+                <a class="text-gray-600 dark:text-gray-400 text-right border-none p-author h-card" rel="author" href="{{ .Site.BaseURL }}" itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ .Site.Params.AuthorName }}</span></a>
+                {{ end }}
             {{ end }}
         </div>
         {{ if .Params.Readingtime }}
@@ -33,20 +37,7 @@
     </div>
 
     {{ partial "taxonomy.html" . }}
-
-    {{ if .Params.references }}
-        <hr>
-        <div class="mb-8" >
-        <h3>References</h3>
-            <div class="references-list" >
-                <ol>
-                    {{ range $elem_index, $elem_val := .Params.references }}
-                        <li id="{{ $elem_val.id }}"><b>{{$elem_val.authors}}</b>. {{$elem_val.text}}</li>
-                    {{ end }}
-                </ol>
-            </div>
-        </div>
-    {{ end }}
+    {{ partial "references.html" . }}
     {{ if .Params.Lastmod }}
     <div class="text-neutral-500 mb-4">
         Last modified <span itemprop="dateModified"
