@@ -4,6 +4,7 @@
 @layer base {
   body {
     @apply tracking-wide;
+    @apply bg-neutral-100;
     @apply dark:bg-zinc-800;
     @apply dark:text-zinc-300;
   }
