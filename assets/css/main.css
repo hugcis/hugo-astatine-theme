@@ -96,7 +96,7 @@
     @apply text-center;
   }
   blockquote {
-    @apply bg-slate-200;
+    @apply bg-white;
     @apply dark:bg-slate-700;
     @apply my-8;
     @apply sm:mx-0;
