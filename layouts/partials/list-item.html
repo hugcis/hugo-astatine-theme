@@ -32,10 +32,12 @@
         {{ else }}
             <h3 itemprop="name" class="border-none pb-0 my-6 col-span-2">{{ .Title }}</h3>
         {{ end }}
-        <div class="list-item-date col-start-4 text-right text-neutral-600 dark:text-neutral-400" itemprop="datePublished"
-            content="{{ .PublishDate.Format "2006-01-02T15:04:05Z0700" }}">
-            {{ .PublishDate.Format "2006.01.02" }}
-        </div>
+        {{ if .PublishDate }}
+            <div class="list-item-date col-start-4 text-right text-neutral-600 dark:text-neutral-400" itemprop="datePublished"
+                content="{{ .PublishDate.Format "2006-01-02T15:04:05Z0700" }}">
+                {{ .PublishDate.Format "2006.01.02" }}
+            </div>
+        {{ end }}
     </a>
     {{ if .Params.Headline }}
     <div class="mt-1">

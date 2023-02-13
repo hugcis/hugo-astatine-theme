@@ -3,6 +3,7 @@
             leading-tight justify-around" id="{{anchorize .title}}"
      itemscope itemtype="http://schema.org/ScholarlyArticle">
     <div class="pub-image basis-40 grow-0 shrink" itemprop="image"
+
          itemscope itemtype="http://schema.org/ImageObject">
         <img alt="{{ .title }} paper illustration"
              itemprop="url" src="{{ .image }}"
@@ -38,7 +39,7 @@
         {{- with .description -}}
         <div itemprop="description" class="pub-description text-sm my-1.5">{{ . }}</div>
         {{- end -}}
-        <div class="pub-link-wrapper mt-1.5 text-sm">
+        <div class="pub-link-wrapper mt-3 text-sm">
             {{- if .citation -}}
             <span class="publication-link cursor-pointer
                          bg-sky-600 dark:bg-sky-700

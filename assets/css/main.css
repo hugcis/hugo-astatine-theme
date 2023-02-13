@@ -16,9 +16,8 @@
   }
   h1, h2 {
     @apply font-bold;
-    @apply pb-4;
-    @apply my-4;
-    @apply border-b;
+    @apply mb-6;
+    @apply mt-4;
   }
   h3 {
     @apply font-bold;
@@ -29,6 +28,10 @@
     @apply font-bold;
     @apply text-lg;
     @apply my-1
+  }
+  p, ul, ol {
+      @apply mt-4;
+      @apply mb-8;
   }
   a {
     @apply text-blue-800;
@@ -42,11 +45,11 @@
   }
   code {
       @apply text-base;
-      @apply rounded-sm;
+      @apply rounded-md;
       @apply px-1;
       @apply py-1;
-      @apply bg-slate-100;
-      @apply dark:bg-slate-800;
+      @apply bg-stone-300;
+      @apply dark:bg-stone-600;
   }
   pre {
     overflow: auto;
@@ -56,11 +59,10 @@
     @apply mb-6;
   }
   pre code {
-    @apply bg-transparent;
+    /* @apply bg-transparent; */
+    @apply bg-inherit;
+    @apply dark:bg-inherit;
     @apply text-sm;
-  }
-  p, ul, ol {
-      @apply my-4;
   }
   li {
       @apply list-disc;
