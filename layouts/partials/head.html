@@ -97,8 +97,8 @@
 {{- else if .Params.Tags -}}
 <meta name="keywords" content="{{ delimit (apply .Params.Tags "lower" ".") ", " }}">
 {{- end -}}
-{{- /* Pagination meta tags */ -}}
-{{- if .Paginator -}}
+{{- /* Pagination meta tags (only on list pages) */ -}}
+{{- if and .IsNode .Paginator -}}
 {{- if .Paginator.HasPrev -}}
 <link rel="prev" href="{{ .Paginator.Prev.URL | absURL }}">
 {{- end -}}
