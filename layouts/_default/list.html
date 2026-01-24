@@ -5,8 +5,8 @@
     {{ range .Pages }}
         {{ partial "list-item.html" . }}
     {{ end }}
-    {{- /* Pagination with SEO-friendly rel links */ -}}
+    {{- /* Pagination */ -}}
     {{ if .Paginator }}
-    {{ template "_internal/pagination.html" . }}
+    {{ partial "pagination.html" . }}
     {{ end }}
 {{ end }}
