@@ -1,6 +1,12 @@
 {{ define "main" }}
+    {{ partial "breadcrumb.html" . }}
+    <h1 class="text-2xl font-bold mb-4">{{ .Title | default (.Section | humanize) }}</h1>
     {{ .Content }}
     {{ range .Pages }}
         {{ partial "list-item.html" . }}
+    {{ end }}
+    {{- /* Pagination with SEO-friendly rel links */ -}}
+    {{ if .Paginator }}
+    {{ template "_internal/pagination.html" . }}
     {{ end }}
 {{ end }}

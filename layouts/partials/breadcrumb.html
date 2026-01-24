@@ -1,0 +1,32 @@
+{{- /* Breadcrumb navigation partial */ -}}
+{{- if not .IsHome -}}
+<nav aria-label="Breadcrumb" class="breadcrumb text-sm text-gray-500 dark:text-gray-400 mb-4">
+  <ol class="flex flex-wrap items-center" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center">
+      <a itemprop="item" href="{{ .Site.BaseURL }}" class="border-none hover:text-gray-700 dark:hover:text-gray-200">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1">
+      <span class="mx-2">/</span>
+    </li>
+    {{- if .Parent -}}
+    {{- if ne .Parent.RelPermalink "/" -}}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center">
+      <a itemprop="item" href="{{ .Parent.Permalink }}" class="border-none hover:text-gray-700 dark:hover:text-gray-200">
+        <span itemprop="name">{{ .Parent.Title | default (.Parent.Section | humanize) }}</span>
+      </a>
+      <meta itemprop="position" content="2">
+      <span class="mx-2">/</span>
+    </li>
+    {{- end -}}
+    {{- end -}}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="flex items-center">
+      <span itemprop="name" class="text-gray-900 dark:text-gray-100 font-medium" aria-current="page">
+        {{ .Title | default (.Section | humanize) | truncate 50 }}
+      </span>
+      <meta itemprop="item" content="{{ .Permalink }}">
+      <meta itemprop="position" content="{{ if and .Parent (ne .Parent.RelPermalink "/") }}3{{ else }}2{{ end }}">
+    </li>
+  </ol>
+</nav>
+{{- end -}}

@@ -1,0 +1,145 @@
+{{- /* JSON-LD Structured Data for SEO */ -}}
+
+{{- /* WebSite Schema - for homepage */ -}}
+{{- if .IsHome -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "description": "{{ .Site.Params.description }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Site.Params.authorName }}",
+    "url": "{{ .Site.BaseURL }}"
+    {{- with .Site.Params.sameas }},
+    "sameAs": "{{ . }}"
+    {{- end }}
+  }
+  {{- if .Site.Params.Twitter.Name }},
+  "sameAs": [
+    "https://twitter.com/{{ .Site.Params.Twitter.Name }}"
+    {{- if .Site.Params.sameas }},
+    "{{ .Site.Params.sameas }}"
+    {{- end }}
+    {{- if (and .Site.Params.Mastodon.Name .Site.Params.Mastodon.Host) }},
+    "https://{{ .Site.Params.Mastodon.Host }}/{{ .Site.Params.Mastodon.Name }}"
+    {{- end }}
+  ]
+  {{- end }}
+}
+</script>
+{{- end -}}
+
+{{- /* Person Schema - for homepage */ -}}
+{{- if .IsHome -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ .Site.Params.authorName }}",
+  "url": "{{ .Site.BaseURL }}",
+  "image": "{{ .Site.BaseURL }}{{ strings.TrimPrefix "/" .Site.Params.imgname.name }}",
+  "description": "{{ .Site.Params.description }}"
+  {{- with .Site.Params.sameas }},
+  "sameAs": ["{{ . }}"
+    {{- if $.Site.Params.Twitter.Name }},
+    "https://twitter.com/{{ $.Site.Params.Twitter.Name }}"
+    {{- end }}
+    {{- if (and $.Site.Params.Mastodon.Name $.Site.Params.Mastodon.Host) }},
+    "https://{{ $.Site.Params.Mastodon.Host }}/{{ $.Site.Params.Mastodon.Name }}"
+    {{- end }}
+  ]
+  {{- end }}
+}
+</script>
+{{- end -}}
+
+{{- /* BlogPosting Schema - for single blog/notes pages */ -}}
+{{- if and .IsPage (or (eq .Type "blog") (eq .Type "notes")) -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ if eq .Type "blog" }}BlogPosting{{ else }}Article{{ end }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  },
+  "headline": "{{ .Title | truncate 110 }}",
+  {{- if .Description }}
+  "description": "{{ .Description }}",
+  {{- else if .Summary }}
+  "description": "{{ .Summary | plainify | truncate 160 }}",
+  {{- end }}
+  "datePublished": "{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}",
+  {{- if .Lastmod }}
+  "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+  {{- else }}
+  "dateModified": "{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}",
+  {{- end }}
+  "author": {
+    "@type": "Person",
+    "name": "{{ if .Params.Author }}{{ .Params.Author }}{{ else }}{{ .Site.Params.authorName }}{{ end }}",
+    "url": "{{ .Site.BaseURL }}"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ .Site.Params.authorName }}",
+    "url": "{{ .Site.BaseURL }}"
+  },
+  "wordCount": {{ .WordCount }}
+  {{- if .Params.Tags }},
+  "keywords": [{{ range $i, $tag := .Params.Tags }}{{ if $i }}, {{ end }}"{{ $tag }}"{{ end }}]
+  {{- end }}
+  {{- if .Params.Ogname }},
+  "image": "{{ .Params.Ogname }}"
+  {{- else if .Params.Imgname }},
+  "image": "{{ .Params.Imgname.Name }}"
+  {{- end }}
+}
+</script>
+{{- end -}}
+
+{{- /* BreadcrumbList Schema - for all pages except home */ -}}
+{{- if not .IsHome -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ .Site.BaseURL }}"
+    }
+    {{- if .Parent }}
+    {{- if ne .Parent.RelPermalink "/" }},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ .Parent.Title | default (.Parent.Section | humanize) }}",
+      "item": "{{ .Parent.Permalink }}"
+    }
+    {{- end }}
+    {{- end }}
+    {{- if .IsPage }},
+    {
+      "@type": "ListItem",
+      "position": {{ if and .Parent (ne .Parent.RelPermalink "/") }}3{{ else }}2{{ end }},
+      "name": "{{ .Title }}",
+      "item": "{{ .Permalink }}"
+    }
+    {{- else if .IsSection }},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ .Title | default (.Section | humanize) }}",
+      "item": "{{ .Permalink }}"
+    }
+    {{- end }}
+  ]
+}
+</script>
+{{- end -}}

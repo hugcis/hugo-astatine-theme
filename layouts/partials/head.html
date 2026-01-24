@@ -1,7 +1,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1">
+{{- /* Canonical URL */ -}}
+<link rel="canonical" href="{{ .Permalink }}">
+{{- /* Title tags with SEO optimization */ -}}
 {{- if eq .RelPermalink "/" -}}
-<title>{{ .Site.Title }}</title>
+<title>{{ .Site.Title }} - {{ .Site.Params.description }}</title>
 <meta property="og:title" content="{{ .Site.Title }}">
 {{- else if .Title -}}
 <title>{{ .Title }} - {{ .Site.Title }}</title>
@@ -10,20 +13,36 @@
 <title>{{ .Section | humanize }} - {{ .Site.Title }}</title>
 <meta property="og:title" content="{{ .Section | humanize  }} - {{ .Site.Title }}">
 {{- end -}}
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:locale" content="{{ .Site.LanguageCode | default "en_US" | replaceRE "-" "_" }}">
 {{ if .IsPage }}
 <meta property="og:type" content="article">
+<meta property="article:published_time" content="{{ .PublishDate.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- if .Lastmod }}
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- end }}
+{{- if .Params.Tags }}
+{{- range .Params.Tags }}
+<meta property="article:tag" content="{{ . }}">
+{{- end }}
+{{- end }}
+<meta property="article:author" content="{{ .Site.Params.authorName }}">
 {{ else }}
 <meta property="og:type" content="website">
 {{ end }}
+{{- /* Open Graph Image with dimensions */ -}}
 {{ if .Params.Ogname }}
-<meta property="og:image" content="{{ .Params.Ogname }}">
+<meta property="og:image" content="{{ .Params.Ogname | absURL }}">
 {{ else if .Params.Imgname }}
-<meta property="og:image" content="{{ .Params.Imgname.Name }}">
+<meta property="og:image" content="{{ .Params.Imgname.Name | absURL }}">
 {{ else if .Params.Caption }}
-<meta property="og:image" content="{{ .Params.Caption.Name }}">
+<meta property="og:image" content="{{ .Params.Caption.Name | absURL }}">
 {{ else }}
-<meta property="og:image" content="{{ .Site.Params.imgname.name }}">
+<meta property="og:image" content="{{ .Site.Params.imgname.name | absURL }}">
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="400">
 {{ end }}
+<meta property="og:image:alt" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 {{- if .Description -}}
 <meta property="og:description" content="{{ .Description }}">
@@ -44,11 +63,27 @@
 <meta property="og:description" content="{{ .Site.Params.description }}">
 <meta name="Description" property="description" content="{{ .Site.Params.description }}">
 {{- end -}}
+{{- /* Twitter Card meta tags */ -}}
 {{ if .Site.Params.Twitter.Name }}
 <link rel="me" href="https://twitter.com/{{ .Site.Params.Twitter.Name }}">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="{{ if or .Params.Ogname .Params.Imgname .Params.Caption }}summary_large_image{{ else }}summary{{ end }}">
 <meta name="twitter:site" content="{{ .Site.Params.Twitter.Name }}">
 <meta name="twitter:creator" content="{{ .Site.Params.Twitter.Name }}">
+<meta name="twitter:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+{{- if .Description }}
+<meta name="twitter:description" content="{{ .Description | truncate 200 }}">
+{{- else if .Summary }}
+<meta name="twitter:description" content="{{ .Summary | plainify | truncate 200 }}">
+{{- else }}
+<meta name="twitter:description" content="{{ .Site.Params.description }}">
+{{- end }}
+{{ if .Params.Ogname }}
+<meta name="twitter:image" content="{{ .Params.Ogname | absURL }}">
+{{ else if .Params.Imgname }}
+<meta name="twitter:image" content="{{ .Params.Imgname.Name | absURL }}">
+{{ else }}
+<meta name="twitter:image" content="{{ .Site.Params.imgname.name | absURL }}">
+{{ end }}
 {{ end }}
 {{ if (and .Site.Params.Mastodon.Name .Site.Params.Mastodon.Host) }}
 <link rel="me" href="https://{{ .Site.Params.Mastodon.Host }}/{{ .Site.Params.Mastodon.Name }}">
@@ -56,12 +91,20 @@
 {{ if .Site.Params.Sameas }}
 <link rel="me" href="{{ .Site.Params.Sameas }}">
 {{ end }}
-<!-- Keywords -->
+{{- /* Keywords */ -}}
 {{- if .Keywords -}}
-<meta property="keywords" content ="{{ delimit .Keywords ", " }}">
+<meta name="keywords" content="{{ delimit .Keywords ", " }}">
+{{- else if .Params.Tags -}}
+<meta name="keywords" content="{{ delimit (apply .Params.Tags "lower" ".") ", " }}">
 {{- end -}}
-{{- if .Params.Tags -}}
-<meta property="keywords" content ="{{ delimit (apply .Params.Tags "lower" ".") ", " }}">
+{{- /* Pagination meta tags */ -}}
+{{- if .Paginator -}}
+{{- if .Paginator.HasPrev -}}
+<link rel="prev" href="{{ .Paginator.Prev.URL | absURL }}">
+{{- end -}}
+{{- if .Paginator.HasNext -}}
+<link rel="next" href="{{ .Paginator.Next.URL | absURL }}">
+{{- end -}}
 {{- end -}}
 <!-- Webmention -->
 {{ if .Site.Params.Webmention }}
@@ -78,7 +121,10 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 <link href="{{ .Site.BaseURL }}index.xml" type="application/atom+xml" rel="alternate" title="Sitewide Atom feed" />
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#f5f5f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#27272a" media="(prefers-color-scheme: dark)">
 <!-- Common JS -->
 {{ $commonJs := resources.Get "js/common.js" | resources.Minify }}
 <script>{{ $commonJs.Content | safeJS }}</script>
+{{- /* JSON-LD Structured Data */ -}}
+{{ partial "schema-jsonld.html" . }}

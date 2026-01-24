@@ -1,0 +1,42 @@
+{{- /*
+  SEO-optimized image partial with lazy loading
+
+  Usage: {{ partial "image-seo.html" (dict "src" "/img/photo.jpg" "alt" "Description" "class" "my-class" "lazy" true) }}
+
+  Parameters:
+    src: Image source path (required)
+    alt: Alt text for accessibility (required for SEO)
+    class: CSS classes (optional)
+    width: Image width (optional)
+    height: Image height (optional)
+    lazy: Enable lazy loading (default: true)
+    caption: Figure caption (optional, wraps in <figure>)
+*/ -}}
+
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $width := .width -}}
+{{- $height := .height -}}
+{{- $lazy := .lazy | default true -}}
+{{- $caption := .caption -}}
+
+{{- if $caption -}}
+<figure class="image-figure {{ $class }}">
+{{- end -}}
+
+<img
+  src="{{ $src }}"
+  alt="{{ $alt }}"
+  {{- if $width }} width="{{ $width }}"{{ end }}
+  {{- if $height }} height="{{ $height }}"{{ end }}
+  {{- if $lazy }} loading="lazy" decoding="async"{{ end }}
+  {{- if and (not $caption) $class }} class="{{ $class }}"{{ end }}
+>
+
+{{- if $caption }}
+  <figcaption class="text-sm text-gray-600 dark:text-gray-400 mt-2 text-center">
+    {{ $caption }}
+  </figcaption>
+</figure>
+{{- end -}}
